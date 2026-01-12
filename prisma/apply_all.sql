@@ -62,7 +62,6 @@ CREATE TABLE IF NOT EXISTS "Workspace" (
   "subscriptionPlanId" TEXT
 );
 
-CREATE_TABLE
 CREATE TABLE IF NOT EXISTS "SubscriptionPlan" (
   "id" TEXT PRIMARY KEY DEFAULT gen_random_uuid(),
   "name" TEXT NOT NULL,
@@ -185,6 +184,47 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_workspace_slug ON "Workspace"("slug");
 BEGIN;
 
 -- Fix RLS policies: use column references directly in WITH CHECK expressions
+
+-- Drop existing policies to make re-apply idempotent
+DROP POLICY IF EXISTS "subscriptionplan_select_authenticated" ON public."SubscriptionPlan";
+DROP POLICY IF EXISTS "subscriptionplan_insert_service_role" ON public."SubscriptionPlan";
+DROP POLICY IF EXISTS "subscriptionplan_update_service_role" ON public."SubscriptionPlan";
+DROP POLICY IF EXISTS "subscriptionplan_delete_service_role" ON public."SubscriptionPlan";
+
+DROP POLICY IF EXISTS "workspace_select_members" ON public."Workspace";
+DROP POLICY IF EXISTS "workspace_insert_service_role" ON public."Workspace";
+DROP POLICY IF EXISTS "workspace_update_owner_or_editor" ON public."Workspace";
+DROP POLICY IF EXISTS "workspace_delete_owner" ON public."Workspace";
+
+DROP POLICY IF EXISTS "shortvideo_select_members" ON public."ShortVideo";
+DROP POLICY IF EXISTS "shortvideo_insert_service_role" ON public."ShortVideo";
+DROP POLICY IF EXISTS "shortvideo_update_owner_editor" ON public."ShortVideo";
+DROP POLICY IF EXISTS "shortvideo_delete_owner" ON public."ShortVideo";
+
+DROP POLICY IF EXISTS "contentplan_select_members" ON public."ContentPlan";
+DROP POLICY IF EXISTS "contentplan_insert_owner_editor" ON public."ContentPlan";
+DROP POLICY IF EXISTS "contentplan_update_owner_editor" ON public."ContentPlan";
+DROP POLICY IF EXISTS "contentplan_delete_owner" ON public."ContentPlan";
+
+DROP POLICY IF EXISTS "niche_select_members" ON public."Niche";
+DROP POLICY IF EXISTS "niche_insert_owner_editor" ON public."Niche";
+DROP POLICY IF EXISTS "niche_update_owner_editor" ON public."Niche";
+DROP POLICY IF EXISTS "niche_delete_owner" ON public."Niche";
+
+DROP POLICY IF EXISTS "membership_select_self" ON public."UserWorkspaceMembership";
+DROP POLICY IF EXISTS "membership_insert_service_role_or_self" ON public."UserWorkspaceMembership";
+DROP POLICY IF EXISTS "membership_update_service_role_or_self" ON public."UserWorkspaceMembership";
+DROP POLICY IF EXISTS "membership_delete_service_role" ON public."UserWorkspaceMembership";
+
+DROP POLICY IF EXISTS "user_select_self" ON public."User";
+DROP POLICY IF EXISTS "user_insert_service_role" ON public."User";
+DROP POLICY IF EXISTS "user_update_self" ON public."User";
+DROP POLICY IF EXISTS "user_delete_service_role" ON public."User";
+
+DROP POLICY IF EXISTS "youtubeconfig_select_members" ON public."YouTubeChannelConfig";
+DROP POLICY IF EXISTS "youtubeconfig_insert_owner_editor_or_service" ON public."YouTubeChannelConfig";
+DROP POLICY IF EXISTS "youtubeconfig_update_owner_editor_or_service" ON public."YouTubeChannelConfig";
+DROP POLICY IF EXISTS "youtubeconfig_delete_service_role" ON public."YouTubeChannelConfig";
 
 -- SubscriptionPlan: allow read for authenticated and service_role; mutations by service_role
 ALTER TABLE public."SubscriptionPlan" ENABLE ROW LEVEL SECURITY;

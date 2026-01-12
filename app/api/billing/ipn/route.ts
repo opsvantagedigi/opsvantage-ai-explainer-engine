@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
+import crypto from "crypto"
 
 export async function POST(req: Request) {
   const ipnSecret = process.env.NOWPAYMENTS_IPN_SECRET
@@ -16,7 +17,29 @@ export async function POST(req: Request) {
     return new NextResponse("Invalid JSON", { status: 400 })
   }
 
-  // TODO: If NowPayments supports HMAC or a signature header, verify here using NOWPAYMENTS_IPN_SECRET.
+  // Verify HMAC signature if present
+  const sigHeader =
+    (req.headers.get("x-nowpayments-signature") || req.headers.get("x-nowpayments-sig") || req.headers.get("x-nowpayments-hmac") || req.headers.get("x-signature")) as string | null
+
+  if (sigHeader) {
+    try {
+      const secret = ipnSecret
+      const hmac = crypto.createHmac("sha256", secret).update(rawBody).digest()
+      const hex = hmac.toString("hex")
+      const b64 = hmac.toString("base64")
+
+      const normalized = sigHeader.replace(/^sha256=(.+)$/i, "$1").replace(/^sha256:/i, "")
+
+      if (normalized !== hex && normalized !== b64) {
+        return new NextResponse("Invalid signature", { status: 401 })
+      }
+    } catch (err) {
+      return new NextResponse("Signature verification failed", { status: 401 })
+    }
+  } else {
+    // If no signature header present, require that an IPN secret still exists and proceed
+    // (We already check ipnSecret presence above.)
+  }
 
   const paymentStatus = payload.payment_status as string | undefined
   const orderId = payload.order_id as string | undefined

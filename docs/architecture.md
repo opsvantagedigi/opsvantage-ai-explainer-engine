@@ -3,7 +3,7 @@
 ## Modules
 - **Frontend**: Next.js App Router, React, Tailwind CSS
 - **Backend**: Next.js API routes (serverless), Prisma ORM
-- **Database**: Postgres (hosted, e.g., Supabase)
+- **Database**: Postgres (hosted, e.g., Neon)
 - **Auth**: NextAuth.js
 - **AI Engine**: lib/aiEngine.ts (mocked, ready for LLM)
 - **YouTube Integration**: lib/youtube.ts

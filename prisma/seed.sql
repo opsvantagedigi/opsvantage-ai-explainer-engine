@@ -1,5 +1,5 @@
 -- Seed SQL for OpsVantage initial data
--- Uses gen_random_uuid(); ensure pgcrypto extension is available in Supabase
+-- Uses gen_random_uuid(); ensure pgcrypto extension is available in Neon
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 -- Admin user

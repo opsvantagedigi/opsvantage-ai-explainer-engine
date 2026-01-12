@@ -1,0 +1,142 @@
+// Prisma schema for OpsVantage AI Explainer Engine
+// See README.md for migration and seed instructions
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  role      UserRole @default(member)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  memberships UserWorkspaceMembership[]
+  workspaces  Workspace[] @relation("WorkspaceOwner")
+}
+
+enum UserRole {
+  admin
+  member
+}
+
+model Workspace {
+  id        String   @id @default(uuid())
+  name      String
+  slug      String   @unique
+  ownerId   String
+  owner     User     @relation("WorkspaceOwner", fields: [ownerId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  memberships UserWorkspaceMembership[]
+  niches      Niche[]
+  contentPlans ContentPlan[]
+  shortVideos  ShortVideo[]
+  youtubeConfigs YouTubeChannelConfig[]
+  subscriptionPlanId String? 
+  subscriptionPlan   SubscriptionPlan? @relation(fields: [subscriptionPlanId], references: [id])
+}
+
+model SubscriptionPlan {
+  id              String   @id @default(uuid())
+  name            String
+  priceMonthly    Int
+  maxWorkspaces   Int
+  maxChannels     Int
+  maxVideosPerMonth Int
+  workspaces      Workspace[]
+}
+
+model UserWorkspaceMembership {
+  id          String   @id @default(uuid())
+  userId      String
+  workspaceId String
+  role        WorkspaceRole @default(viewer)
+  user        User     @relation(fields: [userId], references: [id])
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  @@unique([userId, workspaceId])
+}
+
+enum WorkspaceRole {
+  owner
+  editor
+  viewer
+}
+
+model YouTubeChannelConfig {
+  id                  String   @id @default(uuid())
+  workspaceId         String
+  channelName         String
+  channelId           String?
+  youtubeAccessToken  String
+  youtubeRefreshToken String
+  tokenExpiry         DateTime
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  workspace           Workspace @relation(fields: [workspaceId], references: [id])
+}
+
+model Niche {
+  id          String   @id @default(uuid())
+  workspaceId String
+  name        String
+  description String
+  isActive    Boolean  @default(true)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  contentPlans ContentPlan[]
+  shortVideos  ShortVideo[]
+  @@unique([workspaceId, name])
+}
+
+model ContentPlan {
+  id          String   @id @default(uuid())
+  workspaceId String
+  nicheId     String
+  timeframe   Timeframe
+  startDate   DateTime
+  endDate     DateTime
+  createdAt   DateTime @default(now())
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  niche       Niche     @relation(fields: [nicheId], references: [id])
+  shortVideos ShortVideo[]
+}
+
+enum Timeframe {
+  weekly
+  monthly
+  custom
+}
+
+model ShortVideo {
+  id            String   @id @default(uuid())
+  workspaceId   String
+  contentPlanId String
+  nicheId       String
+  dayIndex      Int
+  hook          String
+  title         String
+  script        String
+  hashtags      String
+  status        ShortVideoStatus @default(idea)
+  youtubeVideoId String?
+  youtubeUrl     String?
+  scheduledAt    DateTime?
+  uploadedAt     DateTime?
+  workspace      Workspace   @relation(fields: [workspaceId], references: [id])
+  contentPlan    ContentPlan @relation(fields: [contentPlanId], references: [id])
+  niche          Niche       @relation(fields: [nicheId], references: [id])
+}
+
+enum ShortVideoStatus {
+  idea
+  scripted
+  ready_to_upload
+  uploaded
+  failed
+}

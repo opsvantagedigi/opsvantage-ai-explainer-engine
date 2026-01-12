@@ -11,6 +11,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-950 relative overflow-hidden text-slate-100">
+      {/* Brand Background */}
       <motion.div
         className="absolute inset-0 -z-10 opacity-60"
         style={{
@@ -25,7 +26,7 @@ export default function LoginPage() {
         animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
         transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
       />
-
+      {/* Grid */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(148,163,184,0.25)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.25)_1px,transparent_1px)] bg-size-[80px_80px] opacity-20" />
 
       <motion.div

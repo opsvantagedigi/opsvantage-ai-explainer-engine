@@ -2,6 +2,8 @@
 
 Purpose
 -------
+> Filename: `docs/founder-acceptance-test.md`
+
 This document is a practical, step-by-step acceptance checklist for the founder and future stewards to validate that the OpsVantage AI-Explainer Engine behaves as designed. It focuses on observable behaviors (auth, billing/IPN, gated features, emails, and CI/CD) and provides copy-pasteable commands for local verification.
 
 Preconditions
@@ -146,6 +148,12 @@ How to evolve this document
 
 - Treat this doc as a contract: update when you add/remove gated features, change authentication, or modify billing flows.
 - When adding a new critical route, add a smoke check and an acceptance line here.
+
+### Related docs
+- [Deployment Playbook](./opsvantage-deployment-playbook.md)
+- [Release Checklist](./release-checklist.md)
+- [Disaster Recovery & Rollback](./disaster-recovery-and-rollback.md)
+- [Monitoring & Alerting](./monitoring-and-alerting.md)
 
 Appendix: IPN Simulation Guide (Option A)
 ---------------------------------------

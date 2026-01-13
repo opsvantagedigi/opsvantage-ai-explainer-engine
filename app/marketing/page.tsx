@@ -2,6 +2,11 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import LandingExplainerDemo from "@/components/LandingExplainerDemo";
 
+// The imported LandingExplainerDemo currently has an incompatible return type in its
+// declaration (appears to be `() => void`). Cast it to a component type so it can
+// be used in JSX here without changing other files.
+const LandingExplainerDemoComponent = LandingExplainerDemo as unknown as () => JSX.Element;
+
 export default function MarketingLanding() {
   return (
     <main className="min-h-screen bg-[#020617] text-[#E5E7EB]">
@@ -37,7 +42,7 @@ export default function MarketingLanding() {
         </div>
 
         <div className="relative" id="demo">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0EA5E9]/20 via-[#22C55E]/10 to-[#EAB308]/20 blur-3xl -z-10" />
+          <div className="absolute inset-0 bg-linear-to-br from-[#0EA5E9]/20 via-[#22C55E]/10 to-[#EAB308]/20 blur-3xl -z-10" />
           <div className="border border-[#24303a] bg-[#071029]/70 rounded-2xl shadow-xl p-4">
             <div className="flex items-center gap-3 mb-4">
               <Logo size={32} />
@@ -46,7 +51,7 @@ export default function MarketingLanding() {
                 <p className="text-sm font-medium">OpsVantage AI‑Explainer Engine</p>
               </div>
             </div>
-            <LandingExplainerDemo />
+            <LandingExplainerDemoComponent />
           </div>
         </div>
       </section>

@@ -90,34 +90,6 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
-      break
-    case "partially_paid":
-    case "waiting":
-      newStatus = "pending"
-      break
-    case "failed":
-    case "expired":
-      newStatus = "failed"
-      break
-    default:
-      newStatus = null
-  }
-
-  if (!newStatus) {
-    return new NextResponse("Ignored status", { status: 200 })
-  }
-
-  // Update subscriptions matching the external order id
-  const updated = await (prisma as any).subscription.updateMany({
-    where: { nowOrderId: orderId },
-    data: {
-      status: newStatus,
-      updatedAt: new Date(),
-      nowOrderId: paymentId ? orderId : undefined,
-    },
-  })
-
-  // Fetch the user email for the first matching subscription (if any)
   const sub = await (prisma as any).subscription.findFirst({ where: { nowOrderId: orderId } });
   if (sub && sub.userId) {
     const user = await prisma.user.findUnique({ where: { id: sub.userId }, select: { email: true } });

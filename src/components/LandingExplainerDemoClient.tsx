@@ -42,7 +42,7 @@ export default function LandingExplainerDemoClient() {
           <option>Client</option>
           <option>Non-technical stakeholder</option>
         </select>
-        <button onClick={generate} disabled={loading} className="px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 via-emerald-400 to-amber-300 text-slate-900 font-semibold">
+        <button onClick={generate} disabled={loading} className="px-4 py-2 rounded-full bg-linear-to-r from-sky-500 via-emerald-400 to-amber-300 text-slate-900 font-semibold">
           {loading ? 'Generating …' : 'Generate Explanation'}
         </button>
       </div>

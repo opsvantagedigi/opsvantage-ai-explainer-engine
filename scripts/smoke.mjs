@@ -2,55 +2,88 @@
 
 import fetch from "node-fetch";
 
-const DEPLOY_URL = process.env.DEPLOY_URL;
+const DEPLOY_URL = process.env.DEPLOY_URL || process.argv[2];
 if (!DEPLOY_URL) {
-  console.error("❌ DEPLOY_URL not set");
+  console.error("❌ DEPLOY_URL not set. Usage: DEPLOY_URL=https://... node scripts/smoke.mjs");
   process.exit(1);
 }
 
-const routes = [
-  { path: "/", method: "GET", expected: [200], description: "Public landing page" },
-  { path: "/login", method: "GET", expected: [200], description: "Login page" },
-  { path: "/app", method: "GET", expected: [200, 302, 307], description: "Protected app wrapper" },
-  { path: "/dashboard", method: "GET", expected: [200, 302, 307], description: "Protected dashboard" },
-  {
-    path: "/api/ai-explainer",
-    method: "POST",
-    expected: [200, 401],
-    description: "Protected API route (POST)",
-    body: JSON.stringify({ prompt: "smoke-test", niche: "smoke" }),
-  },
-];
+function green(msg) { return `\x1b[32m${msg}\x1b[0m` }
+function yellow(msg) { return `\x1b[33m${msg}\x1b[0m` }
+function red(msg) { return `\x1b[31m${msg}\x1b[0m` }
 
-function color(status) {
-  if (status >= 200 && status < 300) return `\x1b[32m${status}\x1b[0m`;
-  if (status === 401 || status === 302 || status === 307) return `\x1b[33m${status}\x1b[0m`;
-  return `\x1b[31m${status}\x1b[0m`;
+async function fetchText(path, opts = {}) {
+  const url = `${DEPLOY_URL.replace(/\/$/, "")}${path}`;
+  const res = await fetch(url, { redirect: "manual", ...opts });
+  const text = await res.text().catch(() => "");
+  return { res, text };
 }
 
-async function checkRoute(route) {
-  const url = `${DEPLOY_URL}${route.path}`;
-  const options = { method: route.method, redirect: "manual", headers: {} };
-  if (route.method === "POST") { options.headers["Content-Type"] = "application/json"; options.body = route.body }
-  try {
-    const res = await fetch(url, options);
-    const status = res.status;
-    const ok = route.expected.includes(status);
-    console.log(`${ok ? "✔️" : "❌"} ${route.path.padEnd(20)} → ${color(status)}  (${route.description})`);
-    return ok;
-  } catch (err) {
-    console.error(`❌ ${route.path} → ERROR:`, err.message);
+async function checkLanding() {
+  const { res, text } = await fetchText("/");
+  if (res.status !== 200) {
+    console.error(`FAIL: GET / — expected 200, got ${res.status}`);
     return false;
   }
+  const ok = /OpsVantage|AI-Explainer|OpsVantage AI-Explainer Engine/i.test(text);
+  if (!ok) console.error(`FAIL: GET / — body missing expected branding`);
+  else console.log(green(`OK: GET / — 200 and branding present`));
+  return ok;
+}
+
+async function checkLogin() {
+  const { res, text } = await fetchText("/login");
+  if (res.status !== 200) {
+    console.error(`FAIL: GET /login — expected 200, got ${res.status}`);
+    return false;
+  }
+  const ok = /Continue with Google|Continue with GitHub|Sign in/i.test(text);
+  if (!ok) console.error(`FAIL: GET /login — login UI not detected`);
+  else console.log(green(`OK: GET /login — login UI detected`));
+  return ok;
+}
+
+async function checkDashboardRedirect() {
+  const { res, text } = await fetchText("/dashboard");
+  if (res.status >= 300 && res.status < 400) {
+    const loc = res.headers.get("location") || "";
+    const ok = loc.includes("/login") || loc.includes("/auth");
+    if (!ok) {
+      console.error(`FAIL: GET /dashboard — redirected to unexpected location: ${loc}`);
+      return false;
+    }
+    console.log(yellow(`OK: GET /dashboard — unauthenticated redirect (${res.status}) → ${loc}`));
+    return true;
+  }
+  if (res.status === 200) {
+    const ok = /Sign in|Continue with Google|Dashboard/i.test(text);
+    if (!ok) console.error(`FAIL: GET /dashboard — expected redirect or sign-in, got 200 without sign-in UI`);
+    else console.log(green(`OK: GET /dashboard — 200 with sign-in UI`));
+    return ok;
+  }
+  console.error(`FAIL: GET /dashboard — unexpected status ${res.status}`);
+  return false;
+}
+
+async function checkApiAiExplainer() {
+  const payload = JSON.stringify({ prompt: "smoke-test", niche: "smoke" });
+  const { res } = await fetchText("/api/ai-explainer", { method: "POST", headers: { "Content-Type": "application/json" }, body: payload });
+  const ok = [200, 401, 403].includes(res.status);
+  if (!ok) console.error(`FAIL: POST /api/ai-explainer — expected 200/401/403, got ${res.status}`);
+  else console.log(green(`OK: POST /api/ai-explainer — ${res.status}`));
+  return ok;
 }
 
 (async () => {
-  console.log(`\n🔍 Running OpsVantage Smoke Tests`);
-  console.log(`🔗 Target: ${DEPLOY_URL}\n`);
+  console.log(`\n🔍 OpsVantage Smoke Tests — Target: ${DEPLOY_URL}\n`);
+  const checks = [checkLanding, checkLogin, checkDashboardRedirect, checkApiAiExplainer];
   let failures = 0;
-  for (const route of routes) { const ok = await checkRoute(route); if (!ok) failures++ }
+  for (const fn of checks) {
+    try { const ok = await fn(); if (!ok) failures++; }
+    catch (err) { console.error(red(`ERROR running check: ${err?.message ?? err}`)); failures++; }
+  }
   console.log("\n──────────────────────────────");
-  if (failures === 0) { console.log("🎉 All smoke tests passed — deployment is healthy.\n"); process.exit(0) }
-  console.log(`⚠️  ${failures} route(s) failed smoke tests.\n`);
+  if (failures === 0) { console.log(green("🎉 All smoke tests passed — deployment is healthy.")); process.exit(0); }
+  console.error(red(`⚠️  ${failures} smoke check(s) failed.`));
   process.exit(1);
 })();

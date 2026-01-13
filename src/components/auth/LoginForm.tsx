@@ -8,7 +8,7 @@ import Alert from "@/components/common/Alert";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
-  const from = searchParams.get("from") || "/dashboard";
+  const from = searchParams?.get("from") || "/dashboard";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

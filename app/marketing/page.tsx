@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import LandingExplainerDemo from "@/components/LandingExplainerDemo";
+import LandingExplainerDemo from "@/components/LandingExplainerDemoClient";
 
 // The imported LandingExplainerDemo currently has an incompatible return type in its
 // declaration (appears to be `() => void`). Cast it to a component type so it can

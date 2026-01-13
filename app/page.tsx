@@ -1,4 +1,4 @@
-import LandingExplainerDemo from '../src/components/LandingExplainerDemo'
+import LandingExplainerDemo from '../src/components/LandingExplainerDemoClient'
 import Link from 'next/link'
 
 export default function LandingPage() {

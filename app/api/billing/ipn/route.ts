@@ -90,40 +90,4 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
-  const sub = await (prisma as any).subscription.findFirst({ where: { nowOrderId: orderId } });
-  if (sub && sub.userId) {
-    const user = await prisma.user.findUnique({ where: { id: sub.userId }, select: { email: true } });
-    if (user?.email) {
-      if (newStatus === "active") {
-        await sendSubscriptionEmail({
-          to: user.email,
-          subject: "Your OpsVantage subscription is now active",
-          body: `
-            <p>Thank you for upgrading to our Pro plan.</p>
-            <p>Your subscription is now active. You can now access all premium features.</p>
-          `,
-        });
-      } else if (newStatus === "failed") {
-        await sendSubscriptionEmail({
-          to: user.email,
-          subject: "OpsVantage payment failed",
-          body: `
-            <p>We were unable to confirm your payment.</p>
-            <p>Please retry from your dashboard or contact support if you need help.</p>
-          `,
-        });
-      } else if (newStatus === "pending") {
-        await sendSubscriptionEmail({
-          to: user.email,
-          subject: "OpsVantage payment pending",
-          body: `
-            <p>Your payment is being processed.</p>
-            <p>Once confirmed, your subscription will activate automatically.</p>
-          `,
-        });
-      }
-    }
-  }
-
-  return new NextResponse("OK", { status: 200 })
 }

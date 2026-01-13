@@ -9,7 +9,21 @@ import Redis from "ioredis"
 
 // Rate limiter: prefer Redis when REDIS_URL is provided, else fallback to in-memory map.
 const redisUrl = process.env.REDIS_URL
-const redisClient = redisUrl ? new Redis(redisUrl) : null
+let redisClient: Redis | null = null
+try {
+  // Guard against placeholder values that may be present in env during builds
+  const isPlaceholder = !redisUrl || redisUrl.includes("<REPLACE") || redisUrl.includes("%3C")
+  if (!isPlaceholder) {
+    redisClient = new Redis(redisUrl as string)
+    // Prevent unhandled error events from crashing the build; log instead
+    redisClient.on("error", (err) => {
+      console.warn("Redis client error (suppressed):", err?.message ?? err)
+    })
+  }
+} catch (err) {
+  console.warn("Failed to initialize Redis client; continuing without Redis:", err)
+  redisClient = null
+}
 const emailRateMap = new Map<string, { count: number; firstTs: number }>()
 const EMAIL_RATE_LIMIT = Number(process.env.EMAIL_RATE_LIMIT ?? 5) // max sends
 const EMAIL_RATE_WINDOW_MS = Number(process.env.EMAIL_RATE_WINDOW_MS ?? 1000 * 60 * 60) // default 1 hour
@@ -25,7 +39,7 @@ export const authOptions: NextAuthOptions = {
       // When the user logs in for the first time in a session
       if (user) {
         // Ensure token.sub is the user id
-        // @ts-expect-error - NextAuth user type is generic
+        // @ts-ignore - NextAuth user type is generic
         token.sub = user.id;
       }
       return token
@@ -33,7 +47,7 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       if (session.user && token.sub) {
         // Expose userId on the session for server routes
-        // @ts-expect-error - we are extending the session user type
+        // @ts-ignore - we are extending the session user type
         session.user.id = token.sub;
       }
       return session

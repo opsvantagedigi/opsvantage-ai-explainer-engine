@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { getToken } from "next-auth/jwt";
 
-export async function middleware(req) {
+export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const authPaths = ["/app", "/dashboard"];
   const requiresAuth = authPaths.some((path) =>

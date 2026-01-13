@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getLatestSubscriptionForUser, mapStatus } from "@/lib/subscription-server";
 import DashboardClient from "./DashboardClient";
 
+export default async function Page() {
   const session = await getServerSession(authOptions);
   if (!session?.user?.email) {
     return (

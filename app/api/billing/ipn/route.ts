@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
 import { sendSubscriptionEmail } from "@/lib/email";
 
 type NowPaymentsIPN = {
@@ -48,6 +47,9 @@ export async function POST(req: NextRequest) {
       // Unknown/irrelevant status → acknowledge but ignore
       return NextResponse.json({ ok: true }, { status: 200 });
     }
+
+    const { PrismaClient } = require('@prisma/client');
+    const prisma = new PrismaClient();
 
     const sub = await prisma.subscription.findFirst({
       where: {

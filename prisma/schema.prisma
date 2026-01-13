@@ -1,5 +1,4 @@
 // Prisma schema for OpsVantage AI Explainer Engine
-// See README.md for migration and seed instructions
 
 generator client {
   provider = "prisma-client-js"
@@ -7,21 +6,11 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
-model User {
-  id            String                    @id @default(uuid())
-  email         String                    @unique
-  name          String?
-  role          UserRole                  @default(member)
-  createdAt     DateTime                  @default(now())
-  updatedAt     DateTime                  @updatedAt
-  memberships   UserWorkspaceMembership[]
-  workspaces    Workspace[]               @relation("WorkspaceOwner")
-  auditLogs     AuditLog[]
-  subscriptions Subscription[]
-}
+//
+// ENUMS
+//
 
 enum UserRole {
   admin
@@ -36,12 +25,50 @@ enum SubscriptionStatus {
   failed
 }
 
+enum WorkspaceRole {
+  owner
+  editor
+  viewer
+}
+
+enum Timeframe {
+  weekly
+  monthly
+  custom
+}
+
+enum ShortVideoStatus {
+  idea
+  scripted
+  ready_to_upload
+  uploaded
+  failed
+}
+
+//
+// MODELS
+//
+
+model User {
+  id            String                    @id @default(uuid())
+  email         String                    @unique
+  name          String?
+  role          UserRole                  @default(member)
+  createdAt     DateTime                  @default(now())
+  updatedAt     DateTime                  @updatedAt
+
+  memberships   UserWorkspaceMembership[]
+  workspaces    Workspace[]               @relation("WorkspaceOwner")
+  auditLogs     AuditLog[]
+  subscriptions Subscription[]
+}
+
 model Subscription {
   id              String             @id @default(uuid())
   userId          String
   workspaceId     String?
   planId          String
-  provider        String // e.g. "nowpayments"
+  provider        String
   providerOrderId String?            @unique
   status          SubscriptionStatus @default(pending)
   amountCents     Int
@@ -53,6 +80,7 @@ model Subscription {
 
   user      User       @relation(fields: [userId], references: [id])
   workspace Workspace? @relation(fields: [workspaceId], references: [id])
+  plan      SubscriptionPlan @relation(fields: [planId], references: [id])
 }
 
 model Workspace {
@@ -60,15 +88,16 @@ model Workspace {
   name               String
   slug               String                    @unique
   ownerId            String
-  owner              User                      @relation("WorkspaceOwner", fields: [ownerId], references: [id])
+  subscriptionPlanId String?
   createdAt          DateTime                  @default(now())
   updatedAt          DateTime                  @updatedAt
+
+  owner              User                      @relation("WorkspaceOwner", fields: [ownerId], references: [id])
   memberships        UserWorkspaceMembership[]
   niches             Niche[]
   contentPlans       ContentPlan[]
   shortVideos        ShortVideo[]
   youtubeConfigs     YouTubeChannelConfig[]
-  subscriptionPlanId String?
   subscriptionPlan   SubscriptionPlan?         @relation(fields: [subscriptionPlanId], references: [id])
   subscriptions      Subscription[]
 }
@@ -80,7 +109,10 @@ model SubscriptionPlan {
   maxWorkspaces     Int
   maxChannels       Int
   maxVideosPerMonth Int
+
+  // Back‑relations
   workspaces        Workspace[]
+  subscriptions     Subscription[]
 }
 
 model UserWorkspaceMembership {
@@ -88,16 +120,11 @@ model UserWorkspaceMembership {
   userId      String
   workspaceId String
   role        WorkspaceRole @default(viewer)
+
   user        User          @relation(fields: [userId], references: [id])
   workspace   Workspace     @relation(fields: [workspaceId], references: [id])
 
   @@unique([userId, workspaceId])
-}
-
-enum WorkspaceRole {
-  owner
-  editor
-  viewer
 }
 
 model YouTubeChannelConfig {
@@ -110,6 +137,7 @@ model YouTubeChannelConfig {
   tokenExpiry         DateTime
   createdAt           DateTime  @default(now())
   updatedAt           DateTime  @updatedAt
+
   workspace           Workspace @relation(fields: [workspaceId], references: [id])
 }
 
@@ -119,6 +147,7 @@ model Niche {
   name         String
   description  String
   isActive     Boolean       @default(true)
+
   workspace    Workspace     @relation(fields: [workspaceId], references: [id])
   contentPlans ContentPlan[]
   shortVideos  ShortVideo[]
@@ -134,15 +163,10 @@ model ContentPlan {
   startDate   DateTime
   endDate     DateTime
   createdAt   DateTime     @default(now())
+
   workspace   Workspace    @relation(fields: [workspaceId], references: [id])
   niche       Niche        @relation(fields: [nicheId], references: [id])
   shortVideos ShortVideo[]
-}
-
-enum Timeframe {
-  weekly
-  monthly
-  custom
 }
 
 model ShortVideo {
@@ -160,17 +184,10 @@ model ShortVideo {
   youtubeUrl     String?
   scheduledAt    DateTime?
   uploadedAt     DateTime?
+
   workspace      Workspace        @relation(fields: [workspaceId], references: [id])
   contentPlan    ContentPlan      @relation(fields: [contentPlanId], references: [id])
   niche          Niche            @relation(fields: [nicheId], references: [id])
-}
-
-enum ShortVideoStatus {
-  idea
-  scripted
-  ready_to_upload
-  uploaded
-  failed
 }
 
 model AuditLog {
@@ -179,5 +196,6 @@ model AuditLog {
   action    String
   details   String
   timestamp DateTime @default(now())
+
   user      User     @relation(fields: [userId], references: [id])
 }

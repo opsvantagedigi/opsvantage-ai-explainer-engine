@@ -1,7 +1,11 @@
-import { PrismaClient } from '@prisma/client';
+if (!process.env.PRISMA_CLIENT_ENGINE_TYPE) {
+  process.env.PRISMA_CLIENT_ENGINE_TYPE = 'binary';
+}
+
+const { PrismaClient } = require('@prisma/client');
 
 const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
+  prisma: InstanceType<typeof PrismaClient> | undefined;
 };
 
 export const prisma =

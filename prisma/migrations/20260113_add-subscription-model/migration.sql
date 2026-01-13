@@ -1,12 +1,3 @@
--- Migration: add-subscription-model (create-only)
--- Generated manually for offline create-only migration
--- NOTE: Review before applying to any database. This migration creates the Subscription model and SubscriptionStatus enum.
-
--- Ensure pgcrypto extension for gen_random_uuid()
-CREATE EXTENSION IF NOT EXISTS "pgcrypto";
-
-BEGIN;
-
 -- Create enum type for subscription status
 DO $$
 BEGIN
@@ -32,8 +23,19 @@ CREATE TABLE IF NOT EXISTS "Subscription" (
   "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
 );
 
--- Foreign keys (assumes User and Workspace tables exist)
-ALTER TABLE IF EXISTS "Subscription" ADD CONSTRAINT "Subscription_user_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE;
-ALTER TABLE IF EXISTS "Subscription" ADD CONSTRAINT "Subscription_workspace_fkey" FOREIGN KEY ("workspaceId") REFERENCES "Workspace"("id") ON DELETE SET NULL;
+-- Foreign keys
+-- Foreign keys (add only if referenced tables exist)
+DO $$
+BEGIN
+  IF to_regclass('"User"') IS NOT NULL THEN
+    ALTER TABLE "Subscription"
+      ADD CONSTRAINT "Subscription_user_fkey"
+      FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE;
+  END IF;
 
-COMMIT;
+  IF to_regclass('"Workspace"') IS NOT NULL THEN
+    ALTER TABLE "Subscription"
+      ADD CONSTRAINT "Subscription_workspace_fkey"
+      FOREIGN KEY ("workspaceId") REFERENCES "Workspace"("id") ON DELETE SET NULL;
+  END IF;
+END$$;

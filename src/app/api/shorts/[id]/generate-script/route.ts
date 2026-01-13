@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+const { getPrisma } = require('@/lib/getPrisma');
 import { generateScriptForShort } from '@/lib/ai';
 
 export async function POST(req: Request, ctx: any) {
   try {
     const id = ctx?.params?.id as string;
+    const prisma = getPrisma();
     const short = await prisma.shortVideo.findUnique({ where: { id } });
     if (!short) return NextResponse.json({ error: 'Short not found' }, { status: 404 });
     const result = await generateScriptForShort(id);

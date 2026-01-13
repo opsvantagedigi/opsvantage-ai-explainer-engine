@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+const { getPrisma } = require('@/lib/getPrisma');
 
 export async function POST(req: NextRequest) {
+  const prisma = getPrisma();
   const { userId, action, details } = await req.json();
   if (!userId || !action) return NextResponse.json({ error: 'Missing data' }, { status: 400 });
   await prisma.auditLog.create({

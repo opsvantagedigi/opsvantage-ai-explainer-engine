@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateExplainer } from '@/lib/explainer-engine';
+const { getPrisma } = require('@/lib/getPrisma');
 
 // Support form POST for AI-powered short generation
 export async function POST(req: NextRequest) {
@@ -28,9 +29,8 @@ export async function POST(req: NextRequest) {
     const result = await generateExplainer({ prompt, niche: 'General' });
     const script = result?.script || '';
     // Save short video (requires prisma)
-    // @ts-ignore
-    const { prisma } = await import('@/lib/prisma');
     // Use placeholder values for required fields
+    const prisma = getPrisma();
     const short = await prisma.shortVideo.create({
       data: {
         workspaceId,

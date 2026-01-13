@@ -3,7 +3,8 @@ name: Post Deploy Smoke
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [vercel-deploy]
+    types:
+      - vercel-deploy
 
 jobs:
   smoke:
@@ -30,5 +31,5 @@ jobs:
         if: failure()
         run: |
           curl -X POST -H 'Content-type: application/json' \
-            --data "{\"text\":\"🛑 OpsVantage Alert — Deployment Integrity Check Failed\nURL: ${{ secrets.VERCEL_DEPLOY_URL }}\"}" \
+            --data "{\"text\":\"🛑 OpsVantage Alert — Deployment Integrity Check Failed\nURL: ${{ secrets.VERCEL_DEPLOY_URL }}\nRepository: ${{ github.repository }}\"}" \
             ${{ secrets.SLACK_WEBHOOK_URL }}

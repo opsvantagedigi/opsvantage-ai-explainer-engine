@@ -90,34 +90,7 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
-}import { NextResponse } from "next/server"
-import { prisma } from "@/lib/prisma"
-import crypto from "crypto"
-
-export async function POST(req: Request) {
-  const ipnSecret = process.env.NOWPAYMENTS_IPN_SECRET
-  if (!ipnSecret) {
-    return new NextResponse("IPN not configured", { status: 500 })
-  }
-
-  const rawBody = await req.text()
-  let payload: any
-
-  try {
-    payload = JSON.parse(rawBody)
-  } catch {
-    return new NextResponse("Invalid JSON", { status: 400 })
-  }
-
-  // Verify HMAC signature if present
-  const sigHeader =
-    (req.headers.get("x-nowpayments-signature") || req.headers.get("x-nowpayments-sig") || req.headers.get("x-nowpayments-hmac") || req.headers.get("x-signature")) as string | null
-
-  if (sigHeader) {
-    try {
-      const secret = ipnSecret
-      const hmac = crypto.createHmac("sha256", secret).update(rawBody).digest()
-      const hex = hmac.toString("hex")
+// ...existing code...
       const b64 = hmac.toString("base64")
 
       const normalized = sigHeader.replace(/^sha256=(.+)$/i, "$1").replace(/^sha256:/i, "")

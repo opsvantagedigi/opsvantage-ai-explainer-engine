@@ -2,6 +2,10 @@ import { prisma } from "@/lib/prisma";
 
 export type SubscriptionStatusSimple = "none" | "pending" | "active" | "failed";
 
+import { prisma } from "@/lib/prisma";
+  switch (sub.status) {
+export type SubscriptionStatusSimple = "none" | "pending" | "active" | "failed";
+    case "active":
 export async function getUserSubscriptionStatus(
   userId: string | null | undefined
 ): Promise<SubscriptionStatusSimple> {
@@ -16,6 +20,16 @@ export async function getUserSubscriptionStatus(
 
   switch (sub.status) {
     case "active":
+      return "active";
+    case "pending":
+      return "pending";
+    case "failed":
+    case "cancelled":
+      return "failed";
+    default:
+      return "none";
+  }
+}
       return "active";
     case "pending":
       return "pending";

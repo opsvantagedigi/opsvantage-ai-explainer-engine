@@ -1,0 +1,24 @@
+name: Uptime Check
+
+on:
+  schedule:
+    - cron: "0 * * * *" # every hour
+  workflow_dispatch:
+
+jobs:
+  uptime:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check health endpoint
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.VERCEL_DEPLOY_URL }}/api/health")
+          if [ "$STATUS" -ne 200 ]; then
+            echo "Health check failed with status $STATUS"
+            exit 1
+          fi
+      - name: Notify Slack on failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data "{\"text\":\" *Uptime Check Failed* for \`${{ github.repository }}\` at ${{ secrets.VERCEL_DEPLOY_URL }}/api/health.\"}" \
+            ${{ secrets.SLACK_WEBHOOK_URL }}

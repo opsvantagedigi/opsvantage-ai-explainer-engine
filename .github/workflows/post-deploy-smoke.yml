@@ -26,5 +26,11 @@ jobs:
       - name: Run smoke tests against deployed URL
         # Access the secret inside the run block to avoid static context warnings
         run: |
-          echo "Running smoke tests against $DEPLOY_URL"
+          echo "Running smoke tests against ${{ secrets.VERCEL_DEPLOY_URL }}"
           DEPLOY_URL=${{ secrets.VERCEL_DEPLOY_URL }} node ./scripts/smoke.mjs
+      - name: Notify Slack on failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data "{\"text\":\" *Post-Deploy Smoke Failed* for \`${{ github.repository }}\` at ${{ secrets.VERCEL_DEPLOY_URL }}.\"}" \
+            ${{ secrets.SLACK_WEBHOOK_URL }}

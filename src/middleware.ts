@@ -12,7 +12,9 @@ const protectedPaths = ["/app", "/dashboard", "/admin"]
     pathname === path || pathname.startsWith(path + "/")
   );
 
-  if (!requiresAuth) return NextResponse.next();
+   if (!requiresAuth) {
+     return NextResponse.next();
+   }
 
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 

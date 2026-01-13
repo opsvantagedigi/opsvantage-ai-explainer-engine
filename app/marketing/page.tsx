@@ -2,10 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import LandingExplainerDemo from "@/components/LandingExplainerDemoClient";
 
-// The imported LandingExplainerDemo currently has an incompatible return type in its
-// declaration (appears to be `() => void`). Cast it to a component type so it can
-// be used in JSX here without changing other files.
-const LandingExplainerDemoComponent = LandingExplainerDemo as unknown as () => JSX.Element;
+// Use the client demo component directly.
 
 export default function MarketingLanding() {
   return (
@@ -51,7 +48,7 @@ export default function MarketingLanding() {
                 <p className="text-sm font-medium">OpsVantage AI‑Explainer Engine</p>
               </div>
             </div>
-            <LandingExplainerDemoComponent />
+            <LandingExplainerDemo />
           </div>
         </div>
       </section>

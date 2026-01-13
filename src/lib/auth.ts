@@ -22,15 +22,19 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, user }) {
+      // When the user logs in for the first time in a session
       if (user) {
-        ;(token as any).role = (user as any).role ?? "member"
+        // Ensure token.sub is the user id
+        // @ts-expect-error - NextAuth user type is generic
+        token.sub = user.id;
       }
       return token
     },
     async session({ session, token }) {
       if (session.user && token.sub) {
-        ;(session.user as any).id = token.sub
-        ;(session.user as any).role = (token as any).role ?? "member"
+        // Expose userId on the session for server routes
+        // @ts-expect-error - we are extending the session user type
+        session.user.id = token.sub;
       }
       return session
     },

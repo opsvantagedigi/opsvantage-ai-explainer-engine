@@ -1,79 +1,28 @@
 "use client"
 
+import { Sparkles } from "lucide-react"
 import { signIn } from "next-auth/react"
-import { motion } from "framer-motion"
-import { Github, Mail, Globe } from "lucide-react"
 
 export default function LoginPage() {
-  const handleSignIn = (provider: string) => {
-    void signIn(provider, { callbackUrl: "/dashboard" })
-  }
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-950 relative overflow-hidden text-slate-100">
-      {/* Brand Background */}
-      <motion.div
-        className="absolute inset-0 -z-10 opacity-60"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 0% 0%, rgba(0, 166, 118, 0.18) 0, transparent 55%),
-            radial-gradient(circle at 100% 100%, rgba(242, 193, 78, 0.22) 0, transparent 55%),
-            radial-gradient(circle at 80% 10%, rgba(0, 59, 115, 0.28) 0, transparent 55%),
-            linear-gradient(135deg, rgba(0, 59, 115, 0.9), rgba(0, 166, 118, 0.8), rgba(242, 193, 78, 0.7))
-          `,
-          backgroundSize: "220% 220%",
-        }}
-        animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-      />
-      {/* Grid */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(148,163,184,0.25)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.25)_1px,transparent_1px)] bg-size-[80px_80px] opacity-20" />
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center px-4">
+      <div className="max-w-sm w-full space-y-6 bg-slate-900/60 border border-white/10 p-8 rounded-xl shadow-xl backdrop-blur-xl">
 
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-md p-8 rounded-xl bg-slate-900/80 backdrop-blur-xl border border-white/10 shadow-2xl"
-      >
-        <h1 className="font-(--font-orbitron) text-2xl text-center mb-2 bg-linear-to-r from-[#F2C14E] via-[#00A676] to-[#00B4D8] bg-clip-text text-transparent">
-          OpsVantage Digital
-        </h1>
-        <p className="text-xs text-center uppercase tracking-[0.2em] text-slate-400 mb-6">
-          AI Explainer Engine · Access
-        </p>
-
-        <p className="text-center text-slate-300 mb-8 text-sm">
-          Sign in to your workspace to create explainers, Shorts, and client‑ready breakdowns.
-        </p>
-
-        <div className="space-y-3">
-          <button
-            onClick={() => handleSignIn("google")}
-            className="w-full flex items-center justify-center gap-2 rounded-lg bg-white text-slate-900 py-2.5 text-sm font-semibold shadow hover:bg-slate-100 transition"
-          >
-            <Globe className="h-4 w-4" />
-            Continue with Google
-          </button>
-          <button
-            onClick={() => handleSignIn("github")}
-            className="w-full flex items-center justify-center gap-2 rounded-lg bg-slate-800 text-slate-100 py-2.5 text-sm font-semibold shadow hover:bg-slate-700 transition"
-          >
-            <Github className="h-4 w-4" />
-            Continue with GitHub
-          </button>
-          <button
-            onClick={() => handleSignIn("email")}
-            className="w-full flex items-center justify-center gap-2 rounded-lg border border-slate-600 bg-slate-900/60 text-slate-100 py-2.5 text-sm font-semibold hover:bg-slate-800 transition"
-          >
-            <Mail className="h-4 w-4" />
-            Continue with Email
-          </button>
+        <div className="flex flex-col items-center gap-2">
+          <Sparkles className="h-8 w-8 text-[#F2C14E]" />
+          <h1 className="font-(--font-orbitron) text-lg tracking-[0.25em] uppercase text-slate-300">
+            OpsVantage Digital
+          </h1>
+          <p className="text-sm text-slate-400">Sign in to AI‑Shorts Studio</p>
         </div>
 
-        <p className="mt-6 text-[11px] text-center text-slate-500">
-          By continuing, you agree to the OpsVantage terms and data practices.
-        </p>
-      </motion.div>
+        <button
+          onClick={() => signIn("email")}
+          className="w-full px-4 py-2 rounded-full bg-linear-to-r from-[#003B73] via-[#00A676] to-[#F2C14E] text-slate-950 font-semibold shadow-lg hover:opacity-90 text-sm"
+        >
+          Continue with Email
+        </button>
+      </div>
     </div>
   )
 }

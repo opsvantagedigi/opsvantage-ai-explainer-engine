@@ -2,30 +2,45 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Sparkles, PlayCircle, ShieldCheck, Zap, Workflow } from "lucide-react"
+import { Sparkles, PlayCircle, ShieldCheck, Zap, Workflow, Scissors, Video, Rocket } from "lucide-react"
 
 const features = [
   {
+    icon: Scissors,
+    title: "Script → Shorts in seconds",
+    desc: "Drop your ideas, transcripts, or long‑form content and get platform‑ready shorts instantly.",
+  },
+  {
+    icon: Video,
+    title: "Creator‑grade output",
+    desc: "Hooks, captions, pacing, and brand‑aligned voice. Shorts that feel human, not templated.",
+  },
+  {
     icon: Workflow,
-    title: "Ops‑aware by design",
-    desc: "Thinks in workflows, rituals, and governance. Explainers that match how your systems actually run.",
+    title: "Workspace‑driven collaboration",
+    desc: "Multi‑tenant workspaces with roles, audit logs, and governance built in from day one.",
   },
   {
     icon: Zap,
-    title: "AI that ships",
-    desc: "Scripts, Shorts, and client‑ready breakdowns you can publish in minutes, not days.",
+    title: "AI that moves fast",
+    desc: "Generate, refine, and publish in minutes. Designed for founders, agencies, and operators.",
   },
   {
     icon: ShieldCheck,
-    title: "Multi‑tenant & secure",
-    desc: "Workspace‑scoped access, RLS, and production‑ready Postgres from day one.",
+    title: "Enterprise‑ready",
+    desc: "RLS, secure Postgres, scoped access, and OpsVantage‑grade operational safety.",
+  },
+  {
+    icon: Rocket,
+    title: "Monetisation‑ready",
+    desc: "Billing, plans, trials, and upgrade paths built into the platform architecture.",
   },
 ]
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 relative overflow-hidden">
-      {/* Background */}
+      {/* Animated Background */}
       <motion.div
         className="absolute inset-0 -z-10 opacity-70"
         style={{
@@ -40,8 +55,11 @@ export default function LandingPage() {
         animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
         transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
       />
+
+      {/* Grid overlay */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(148,163,184,0.2)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.2)_1px,transparent_1px)] bg-size-[80px_80px] opacity-20" />
 
+      {/* Header */}
       <header className="border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -61,13 +79,15 @@ export default function LandingPage() {
               href="/login"
               className="text-sm px-4 py-2 rounded-full bg-linear-to-r from-[#003B73] via-[#00A676] to-[#F2C14E] text-slate-950 font-semibold shadow-lg hover:opacity-90"
             >
-              Launch Explainer Engine
+              Launch AI‑Shorts Studio
             </Link>
           </div>
         </div>
       </header>
 
+      {/* Main */}
       <main className="mx-auto max-w-6xl px-4 md:px-8 py-12 md:py-16 space-y-16">
+
         {/* Hero */}
         <section className="grid gap-10 md:grid-cols-[1.3fr,1fr] items-center">
           <div>
@@ -77,20 +97,23 @@ export default function LandingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              Explain complex systems like a founder, not a manual.
+              Turn long‑form ideas into viral AI shorts.
             </motion.h1>
+
             <p className="mt-4 text-sm md:text-base text-slate-200/90 max-w-xl">
-              The OpsVantage AI Explainer Engine turns your CI/CD pipelines, governance rituals,
-              and product behavior into clean explainers, scripts, and Shorts‑ready content.
+              AI‑Shorts Studio by OpsVantage Digital transforms your scripts, calls, and content
+              into ready‑to‑publish short‑form videos — complete with hooks, captions, pacing, and brand voice.
             </p>
+
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/login"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-linear-to-r from-[#003B73] via-[#00A676] to-[#F2C14E] text-slate-950 font-semibold text-sm shadow-lg hover:opacity-90"
               >
                 <Sparkles className="h-4 w-4" />
-                Start explaining in seconds
+                Create your first Shorts Workspace
               </Link>
+
               <Link
                 href="#how-it-works"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-slate-600 text-sm text-slate-100 hover:bg-slate-900/70"
@@ -99,12 +122,13 @@ export default function LandingPage() {
                 See how it works
               </Link>
             </div>
+
             <p className="mt-3 text-xs text-slate-400">
-              Built for founders, educators, and operators who think in systems.
+              Built for creators, founders, agencies, and operators who move fast.
             </p>
           </div>
 
-          {/* Hero right: preview card */}
+          {/* Hero Preview */}
           <motion.div
             className="rounded-xl border border-white/15 bg-slate-950/70 backdrop-blur-xl p-5 shadow-2xl"
             initial={{ opacity: 0, x: 20 }}
@@ -112,24 +136,27 @@ export default function LandingPage() {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-3">
-              Live explainer preview
+              Shorts preview
             </p>
+
             <div className="space-y-3 text-sm">
               <div className="border border-slate-700/70 rounded-lg p-3 bg-slate-900/60">
-                <p className="text-[11px] text-slate-400 mb-1">Title</p>
+                <p className="text-[11px] text-slate-400 mb-1">Hook</p>
                 <p className="font-medium text-slate-50">
-                  CI/CD for new engineers in 90 seconds
+                  “Stop scrolling — here’s how to turn one idea into 10 viral shorts.”
                 </p>
               </div>
+
               <div className="border border-slate-700/70 rounded-lg p-3 bg-slate-900/60">
-                <p className="text-[11px] text-slate-400 mb-1">Script</p>
+                <p className="text-[11px] text-slate-400 mb-1">Caption</p>
                 <p className="text-xs text-slate-200 leading-relaxed">
-                  “Imagine every change to your codebase is a plane taking off. CI/CD is the air
-                  traffic control that checks, tests, and safely lands each deployment…”
+                  “Creators waste hours editing. AI‑Shorts Studio cuts the noise and gives you
+                  ready‑to‑publish clips with pacing, captions, and brand voice baked in.”
                 </p>
               </div>
+
               <div className="flex flex-wrap gap-2">
-                {['#CI/CD', '#DevOps', '#Explainer', '#OpsVantage'].map((tag) => (
+                {["#Shorts", "#CreatorTools", "#AIEditing", "#OpsVantage"].map((tag) => (
                   <span
                     key={tag}
                     className="px-3 py-1 rounded-full text-[11px] bg-emerald-500/10 border border-emerald-400/40 text-emerald-200"
@@ -145,8 +172,9 @@ export default function LandingPage() {
         {/* Features */}
         <section id="how-it-works" className="space-y-6">
           <h2 className="font-(--font-orbitron) text-xl text-slate-50">
-            Built for systems, not just sentences.
+            Built for creators. Engineered for teams.
           </h2>
+
           <div className="grid gap-5 md:grid-cols-3">
             {features.map((f) => (
               <div

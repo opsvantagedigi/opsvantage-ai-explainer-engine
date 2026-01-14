@@ -1,4 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Running lint-staged..."
+pnpm lint-staged
+echo "✓ Pre-commit checks passed."
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx --no -- lint-staged
+npm test

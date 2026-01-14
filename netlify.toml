@@ -1,5 +1,6 @@
 [build]
-  command = "cd apps/web && pnpm install && pnpm build"
+  # Install workspace packages (allow lockfile sync in CI) then build the web app
+  command = "NODE_ENV=development pnpm install --no-frozen-lockfile && NODE_ENV=production pnpm --filter apps/web build"
   publish = "apps/web/.next"
   environment = { NODE_VERSION = "20" }
 

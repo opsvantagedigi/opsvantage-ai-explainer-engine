@@ -1,11 +1,13 @@
 /* stylelint-disable at-rule-no-unknown */
 @import 'tailwindcss/preflight';
-/* stylelint-disable-next-line at-rule-no-unknown */
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 /* stylelint-enable at-rule-no-unknown */
 
 /* ---------------------------------------------------------
-   Brand Tokens
 --------------------------------------------------------- */
 :root {
   --font-orbitron: 'Orbitron', sans-serif;
@@ -18,7 +20,6 @@
 }
 
 /* ---------------------------------------------------------
-   Global Base
 --------------------------------------------------------- */
 html,
 body {
@@ -30,7 +31,6 @@ body {
 }
 
 /* ---------------------------------------------------------
-   Typography Helpers
 --------------------------------------------------------- */
 .heading-orbitron {
   font-family: var(--font-orbitron, 'Orbitron', sans-serif);
@@ -45,7 +45,6 @@ body {
 }
 
 /* ---------------------------------------------------------
-   Glass Panels / Cards
 --------------------------------------------------------- */
 .glass-panel {
   background: var(--card-bg);
@@ -63,7 +62,6 @@ body {
 }
 
 /* ---------------------------------------------------------
-   Buttons
 --------------------------------------------------------- */
 .btn-primary {
   display: inline-flex;
@@ -86,7 +84,6 @@ body {
 }
 
 /* ---------------------------------------------------------
-   Scrollbar (Timeline / App)
 --------------------------------------------------------- */
 ::-webkit-scrollbar {
   height: 4px;
@@ -98,7 +95,6 @@ body {
 }
 
 /* ---------------------------------------------------------
-   Links
 --------------------------------------------------------- */
 a {
   color: inherit;
@@ -109,7 +105,6 @@ a:hover {
 }
 
 /* ---------------------------------------------------------
-   Dark mode hint
 --------------------------------------------------------- */
 @media (prefers-color-scheme: dark) {
   html {

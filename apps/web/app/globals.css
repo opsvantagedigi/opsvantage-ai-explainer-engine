@@ -205,3 +205,67 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Brand utilities and components */
+.text-brand-yellow {
+  color: #f59e0b;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 200ms ease;
+  color: rgba(255, 255, 255, 0.9);
+}
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(4px);
+}
+.sidebar-item.active {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.12), rgba(124, 58, 237, 0.08));
+  border-left: 3px solid #3b82f6;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  transition: all 300ms ease;
+}
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeUp {
+  animation: fadeInUp 520ms ease forwards;
+}
+
+.transition-all {
+  transition: all 300ms ease;
+}
+
+.shadow-soft {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}

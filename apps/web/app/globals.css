@@ -19,7 +19,8 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* prefer loaded variable font, fall back to system */
+  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,6 +29,109 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+/* Minimal utility classes to approximate Tailwind used in app/page.tsx */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.text-center {
+  text-align: center;
+}
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.transition {
+  transition: all 150ms ease-in-out;
+}
+.tracking-wide {
+  letter-spacing: 0.03em;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+/* color utilities (supporting class names with slash) */
+.text-white\/90 {
+  color: rgba(255, 255, 255, 0.9);
+}
+.bg-white\/10 {
+  background: rgba(255, 255, 255, 0.1);
+}
+.hover\:bg-white\/20:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.hover\:bg-white\/10:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.border {
+  border-width: 1px;
+  border-style: solid;
+}
+.border-white\/20 {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* font helpers */
+.font-orbitron {
+  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
+}
+.font-inter {
+  font-family: var(--font-geist-mono, Arial, Helvetica, sans-serif);
+}
+
+/* simple brand gradient for headings */
+.brand-gradient {
+  background: linear-gradient(90deg, #06b6d4, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a {

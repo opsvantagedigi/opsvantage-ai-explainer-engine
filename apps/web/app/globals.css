@@ -1,8 +1,9 @@
 /* ---------------------------------------------------------
-   Tailwind Base
+  Tailwind Base (v4)
 --------------------------------------------------------- */
-@tailwind base;
-@tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
+@import 'tailwindcss/preflight';
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind utilities;
 
 /* ---------------------------------------------------------
@@ -39,6 +40,7 @@ h6,
   font-family: var(--font-orbitron);
   background: linear-gradient(90deg, #3b82f6, #7c3aed, #f59e0b);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -59,6 +61,7 @@ h6,
 .gradient-heading {
   background: linear-gradient(90deg, #3b82f6, #7c3aed, #f59e0b);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

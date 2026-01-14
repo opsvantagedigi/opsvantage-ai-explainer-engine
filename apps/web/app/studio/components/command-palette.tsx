@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { Search, Sparkles, Video, Settings, LayoutDashboard } from "lucide-react";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Search, Sparkles, Video, Settings, LayoutDashboard } from 'lucide-react';
 
 interface CommandPaletteProps {
   open: boolean;
@@ -10,25 +10,23 @@ interface CommandPaletteProps {
 }
 
 const actions = [
-  { label: "Go to Dashboard", href: "/studio", icon: LayoutDashboard },
-  { label: "New Prompt-to-Video Project", href: "/studio/new", icon: Video },
-  { label: "View Jobs / Renders", href: "/studio/jobs", icon: Sparkles },
-  { label: "Open Settings", href: "/studio/settings", icon: Settings },
+  { label: 'Go to Dashboard', href: '/studio', icon: LayoutDashboard },
+  { label: 'New Prompt-to-Video Project', href: '/studio/new', icon: Video },
+  { label: 'View Jobs / Renders', href: '/studio/jobs', icon: Sparkles },
+  { label: 'Open Settings', href: '/studio/settings', icon: Settings },
 ];
 
 export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const router = useRouter();
 
   useEffect(() => {
-    if (!open) setQuery("");
+    if (!open) Promise.resolve().then(() => setQuery(''));
   }, [open]);
 
   if (!open) return null;
 
-  const filtered = actions.filter((a) =>
-    a.label.toLowerCase().includes(query.toLowerCase())
-  );
+  const filtered = actions.filter((a) => a.label.toLowerCase().includes(query.toLowerCase()));
 
   return (
     <div
@@ -75,3 +73,5 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
     </div>
   );
 }
+
+export default CommandPalette;

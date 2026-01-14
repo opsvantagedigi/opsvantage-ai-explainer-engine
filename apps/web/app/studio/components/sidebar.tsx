@@ -48,9 +48,9 @@ export function Sidebar() {
       </nav>
 
       <div className="mt-auto pt-4">
-        <a href="/" className="text-sm text-white/70 hover:text-white transition-all">
+        <Link href="/" className="text-sm text-white/70 hover:text-white transition-all">
           Back to site
-        </a>
+        </Link>
       </div>
     </aside>
   );

@@ -1,48 +1,4 @@
-import Link from 'next/link';
-
-export function Sidebar() {
-  return (
-    <aside className="studio-sidebar">
-      <div style={{ marginBottom: 16 }}>
-        <img src="/brand-icon.png" alt="logo" style={{ width: 48, height: 48, borderRadius: 6 }} />
-      </div>
-      <nav>
-        <ul
-          style={{
-            listStyle: 'none',
-            padding: 0,
-            margin: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 12,
-          }}
-        >
-          <li>
-            <Link href="/studio">
-              <a>Dashboard</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/studio/new">
-              <a>New</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/studio/jobs">
-              <a>Jobs</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/studio/settings">
-              <a>Settings</a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-  );
-}
-('use client');
+'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -63,7 +19,7 @@ export function Sidebar() {
           height={36}
           className="rounded-md"
         />
-        <span className="font-orbitron text-xl brand-gradient">Studio</span>
+        <span className="font-orbitron text-xl gradient-heading">Studio</span>
       </div>
 
       <nav className="flex flex-col gap-2">

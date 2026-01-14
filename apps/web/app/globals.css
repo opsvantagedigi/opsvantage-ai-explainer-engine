@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
+/* stylelint-disable at-rule-no-unknown */
+@import 'tailwindcss/preflight';
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 /* ---------------------------------------------------------
    Brand Tokens
@@ -37,6 +39,7 @@ body {
 
 .brand-text-gradient {
   background: var(--brand-gradient);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

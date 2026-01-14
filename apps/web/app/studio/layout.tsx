@@ -8,7 +8,7 @@ export default function StudioLayout({ children }: { children: ReactNode }) {
       {/* Sidebar Navigation */}
       <aside className="w-64 border-r border-white/10 flex flex-col p-6 gap-8 bg-black/40">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 via-green-400 to-yellow-400 animate-pulse" />
+          <div className="w-8 h-8 rounded-full bg-linear-to-tr from-blue-600 via-green-400 to-yellow-400 animate-pulse" />
           <span className="heading-orbitron font-bold text-sm tracking-tighter">AI-STUDIO</span>
         </div>
 

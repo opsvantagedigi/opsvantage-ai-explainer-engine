@@ -25,8 +25,8 @@ export default function StudioPage() {
           <div className="glass-panel aspect-video relative overflow-hidden group">
             {/* Center Brand Icon Placeholder */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-700 via-green-500 to-yellow-300 opacity-20 blur-2xl group-hover:opacity-40 transition-all" />
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 via-green-400 to-yellow-400 shadow-2xl flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full bg-linear-to-br from-blue-700 via-green-500 to-yellow-300 opacity-20 blur-2xl group-hover:opacity-40 transition-all" />
+              <div className="w-16 h-16 rounded-full bg-linear-to-br from-blue-600 via-green-400 to-yellow-400 shadow-2xl flex items-center justify-center">
                 <div className="w-4 h-4 bg-white rotate-45" />
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function StudioPage() {
                     {track}
                   </span>
                   <div className="h-8 flex-1 bg-white/5 rounded relative border border-white/5">
-                    <div className="absolute left-10 right-40 top-1 bottom-1 bg-gradient-to-r from-blue-500/20 to-green-500/20 rounded border-l-2 border-blue-400" />
+                    <div className="absolute left-10 right-40 top-1 bottom-1 bg-linear-to-r from-blue-500/20 to-green-500/20 rounded border-l-2 border-blue-400" />
                   </div>
                 </div>
               ))}
@@ -93,7 +93,7 @@ export default function StudioPage() {
                 <span className="text-xs text-green-400">98% Match</span>
               </div>
               <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                <div className="h-full w-[98%] bg-gradient-to-r from-blue-500 via-green-400 to-yellow-400" />
+                <div className="h-full w-[98%] bg-linear-to-r from-blue-500 via-green-400 to-yellow-400" />
               </div>
             </div>
           </section>

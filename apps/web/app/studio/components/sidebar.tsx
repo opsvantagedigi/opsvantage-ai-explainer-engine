@@ -10,7 +10,10 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 bg-black/40 backdrop-blur-xl border-r border-white/10 p-6 hidden md:flex flex-col">
+    <aside
+      className="w-64 bg-black/40 backdrop-blur-xl border-r border-white/10 p-6 hidden md:flex flex-col flex-shrink-0"
+      style={{ height: 'calc(100vh - 64px)' }}
+    >
       <div className="flex items-center gap-3 mb-10">
         <Image
           src="/brand-icon.png"

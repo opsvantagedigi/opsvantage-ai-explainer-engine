@@ -1,43 +1,32 @@
-import Image from "next/image"
+import Image from 'next/image';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col items-center justify-center py-24 text-center">
+    <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-8 font-inter">
       <Image
         src="/brand-icon.png"
-        alt="OpsVantage Digital Brand Icon"
-        width={80}
-        height={80}
+        alt="OpsVantage Logo"
+        width={96}
+        height={96}
         className="mb-6"
         priority
       />
-
-      <h1 className="text-5xl font-orbitron brand-gradient">
-        AI‑YouTube Studio
-      </h1>
-
-      <p className="mt-6 max-w-2xl text-lg text-white/90 font-inter">
-        Automated, intelligent, and beautifully engineered YouTube content creation.
-        Built with precision. Powered by OpsVantage Digital.
+      <h1 className="text-4xl font-orbitron mb-4">AI-YouTube Studio</h1>
+      <p className="text-lg text-center max-w-xl mb-6">
+        Automated, intelligent, and beautifully engineered YouTube content creation. Built with
+        precision. Powered with OpsVantage Digital.
       </p>
-
-      <div className="mt-10 flex gap-6">
-        <a
-          href="/studio"
-          className="px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 transition font-orbitron text-white tracking-wide"
-        >
+      <div className="flex gap-4">
+        <a href="/studio" className="px-4 py-2 bg-blue-600 rounded font-orbitron">
           Enter Studio
         </a>
-
         <a
           href="https://opsvantagedigital.online"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition font-inter text-white/90"
+          className="px-4 py-2 border border-white rounded"
         >
           Visit OpsVantage Digital
         </a>
       </div>
-    </div>
-  )
+    </main>
+  );
 }

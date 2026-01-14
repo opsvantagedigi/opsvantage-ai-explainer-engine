@@ -5,3 +5,6 @@ dist
 *.wav
 .vercel
 .env*.local
+
+# Local Netlify folder
+.netlify

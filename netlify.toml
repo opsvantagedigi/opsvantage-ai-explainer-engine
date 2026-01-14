@@ -1,7 +1,8 @@
 [build]
-  # Install workspace packages (allow lockfile sync in CI) then build the web app
-  command = "NODE_ENV=development pnpm install --no-frozen-lockfile && NODE_ENV=production pnpm --filter apps/web build"
-  publish = "apps/web/.next"
+  # Run commands from the apps/web subdirectory so the Next plugin sees expected output
+  base = "apps/web"
+  command = "pnpm install && pnpm build"
+  publish = ".next"
   environment = { NODE_VERSION = "20" }
 
 [context.production.environment]

@@ -1,5 +1,5 @@
 [build]
-  command = "pnpm build:web"
+  command = "cd apps/web && pnpm install && pnpm build"
   publish = "apps/web/.next"
 
 [build.environment]
@@ -9,13 +9,13 @@
   package = "@netlify/plugin-nextjs"
 
 [context.development]
-  command = "pnpm build:web"
+  command = "cd apps/web && pnpm install && pnpm build"
 
 [context.staging]
-  command = "pnpm build:web"
+  command = "cd apps/web && pnpm install && pnpm build"
 
 [context.production]
-  command = "pnpm build:web"
+  command = "cd apps/web && pnpm install && pnpm build"
 
 [[redirects]]
   from = "/*"

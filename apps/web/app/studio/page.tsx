@@ -1,55 +1,114 @@
 // apps/web/app/studio/page.tsx
-export default function StudioDashboard() {
+import React from 'react';
+
+export default function StudioPage() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <section className="md:col-span-2">
-        <div className="card mb-4">
-          <h3 className="text-2xl font-orbitron gradient-heading mb-2">Create a new video</h3>
-          <p className="text-white/80 mb-4">
-            Start a prompt-based workflow to generate video ideas, scripts, and assets.
-          </p>
-          <a href="/studio/new" className="btn-primary">
-            Create Video
-          </a>
+    <div className="p-6 flex flex-col gap-6 h-full overflow-y-auto">
+      {/* Header Section */}
+      <header className="flex justify-between items-center">
+        <div className="flex items-center gap-4">
+          <h1 className="heading-orbitron text-3xl font-black brand-text-gradient">
+            AI-YouTube Studio
+          </h1>
+          <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-green-400">
+            Enterprise Live
+          </span>
         </div>
+        <button className="px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-yellow-400 transition-colors">
+          EXPORT VIDEO
+        </button>
+      </header>
 
-        <div className="panel">
-          <h4 className="font-orbitron mb-3">Recent jobs</h4>
-          <ul className="space-y-3 text-white/80">
-            <li className="flex items-center justify-between">
-              <div>
-                <div className="font-inter">Render: "How to Automate X"</div>
-                <div className="text-xs text-white/60">Encoding — 3m ago</div>
+      <div className="grid grid-cols-12 gap-6 flex-1">
+        {/* LEFT: Director's Stage (Video Preview & Timeline) */}
+        <div className="col-span-12 lg:col-span-8 flex flex-col gap-6">
+          <div className="glass-panel aspect-video relative overflow-hidden group">
+            {/* Center Brand Icon Placeholder */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-700 via-green-500 to-yellow-300 opacity-20 blur-2xl group-hover:opacity-40 transition-all" />
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 via-green-400 to-yellow-400 shadow-2xl flex items-center justify-center">
+                <div className="w-4 h-4 bg-white rotate-45" />
               </div>
-              <div className="text-sm text-white/80">Processing</div>
-            </li>
-            <li className="flex items-center justify-between">
-              <div>
-                <div className="font-inter">Render: "OpsVantage Intro"</div>
-                <div className="text-xs text-white/60">Completed — 1h ago</div>
-              </div>
-              <div className="text-sm text-white/80">Done</div>
-            </li>
-          </ul>
-        </div>
-      </section>
+            </div>
 
-      <aside className="md:col-span-1">
-        <div className="card">
-          <h4 className="font-orbitron mb-2">Quick Actions</h4>
-          <div className="flex flex-col gap-3">
-            <a href="/studio/new" className="btn-outline">
-              New Prompt
-            </a>
-            <a href="/studio/jobs" className="btn-outline">
-              View Jobs
-            </a>
-            <a href="/studio/settings" className="btn-outline">
-              Settings
-            </a>
+            <div className="absolute bottom-0 w-full p-4 bg-black/60 backdrop-blur-md flex justify-between items-center">
+              <div className="flex gap-4 items-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full animate-ping" />
+                <span className="text-xs font-mono">00:42 / 03:15</span>
+              </div>
+              <div className="flex gap-4 opacity-50">
+                <span className="text-xs italic underline cursor-pointer">Edit Layers</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline Section */}
+          <div className="glass-panel p-4 flex-1 min-h-[200px]">
+            <h3 className="heading-orbitron text-[10px] mb-4 text-gray-500">
+              Multitrack Sequencer
+            </h3>
+            <div className="space-y-3">
+              {['Video', 'AI Voiceover', 'Subtitles'].map((track) => (
+                <div key={track} className="flex items-center gap-4">
+                  <span className="text-[10px] w-20 text-gray-400 uppercase tracking-tighter">
+                    {track}
+                  </span>
+                  <div className="h-8 flex-1 bg-white/5 rounded relative border border-white/5">
+                    <div className="absolute left-10 right-40 top-1 bottom-1 bg-gradient-to-r from-blue-500/20 to-green-500/20 rounded border-l-2 border-blue-400" />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </aside>
+
+        {/* RIGHT: Neural Sidebar (AI Controls) */}
+        <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
+          <section className="glass-panel p-6 space-y-6">
+            <h2 className="heading-orbitron text-xs text-yellow-400 tracking-widest uppercase">
+              Neural Workflow
+            </h2>
+
+            <div className="space-y-4">
+              <button className="w-full text-left p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition group">
+                <p className="text-xs text-gray-400 mb-1">AI Smart Task</p>
+                <p className="text-sm font-semibold group-hover:text-yellow-400">
+                  Generate Script from Topic
+                </p>
+              </button>
+
+              <button className="w-full text-left p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition group">
+                <p className="text-xs text-gray-400 mb-1">Visual Enhancement</p>
+                <p className="text-sm font-semibold group-hover:text-green-400">
+                  Auto-Apply Color Grade
+                </p>
+              </button>
+            </div>
+
+            <div className="pt-6 border-t border-white/10">
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-xs text-gray-400 uppercase tracking-widest">
+                  Brand Compliance
+                </span>
+                <span className="text-xs text-green-400">98% Match</span>
+              </div>
+              <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                <div className="h-full w-[98%] bg-gradient-to-r from-blue-500 via-green-400 to-yellow-400" />
+              </div>
+            </div>
+          </section>
+
+          <section className="glass-panel p-6 flex-1">
+            <h2 className="heading-orbitron text-xs text-gray-500 tracking-widest uppercase mb-4">
+              Real-time Engagement
+            </h2>
+            <div className="text-2xl font-black heading-orbitron tracking-tighter italic">
+              12.4K{' '}
+              <span className="text-[10px] not-italic text-gray-400 font-normal">EST. VIEWS</span>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   );
 }

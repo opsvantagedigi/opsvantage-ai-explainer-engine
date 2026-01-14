@@ -3,7 +3,6 @@ import React from 'react';
 export const metadata = {
   title: 'Studio - AI YouTube Studio',
 };
-
 export default function StudioLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen bg-black text-white font-inter">
@@ -25,22 +24,6 @@ export default function StudioLayout({ children }: { children: React.ReactNode }
         </nav>
       </aside>
       <main className="flex-1 p-8">{children}</main>
-    </div>
-  );
-}
-import '@/styles/globals.css';
-import { Sidebar } from './components/sidebar';
-import { Header } from './components/header';
-
-export default function StudioLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex min-h-screen bg-black text-white">
-      <Sidebar />
-
-      <div className="flex flex-col flex-1">
-        <Header />
-        <main className="p-8">{children}</main>
-      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
-const fastify = require('fastify');
-const { v4: uuidv4 } = require('uuid');
-const { runPromptToVideo } = require('./pipeline');
-const { createVideoJobPlaceholder } = require('./models');
+import fastify from 'fastify';
+import { v4 as uuidv4 } from 'uuid';
+import { runPromptToVideo } from './pipeline.js';
+import { createVideoJobPlaceholder } from './models.js';
 
 const server = fastify({ logger: true });
 const store = new Map();

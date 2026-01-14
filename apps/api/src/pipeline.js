@@ -1,6 +1,6 @@
-const { v4: uuidv4 } = require('uuid');
-const fs = require('fs');
-const path = require('path');
+import { v4 as uuidv4 } from 'uuid';
+import fs from 'fs';
+import path from 'path';
 
 function ensureOutputDir(jobId) {
   const out = path.join(process.cwd(), '..', '..', 'scripts', 'output', jobId);
@@ -8,7 +8,7 @@ function ensureOutputDir(jobId) {
   return out;
 }
 
-async function runPromptToVideo(jobId, input) {
+export async function runPromptToVideo(jobId, input) {
   const createdAt = new Date().toISOString();
   const job = {
     id: jobId,
@@ -53,5 +53,3 @@ async function runPromptToVideo(jobId, input) {
 
   return job;
 }
-
-module.exports = { runPromptToVideo };

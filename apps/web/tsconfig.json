@@ -1,5 +1,7 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
@@ -11,23 +13,17 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-
-    // Required for React 17+ JSX transform
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-
-    // Required for JSX IntrinsicElements + react/jsx-runtime
     "types": ["react", "react-dom", "node"],
-
     "incremental": true,
-
     "plugins": [
       {
         "name": "next"
       }
     ],
-
     "paths": {
+      "@repo/queue": ["../../packages/queue/index.ts"],
       "@/*": ["./*"]
     }
   },

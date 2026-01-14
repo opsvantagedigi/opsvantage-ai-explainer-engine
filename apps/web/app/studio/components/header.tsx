@@ -7,7 +7,7 @@ export function Header() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <header className="w-full bg-black/30 backdrop-blur-xl border-b border-white/10 px-6 py-4 flex items-center justify-between">
+    <header className="w-full bg-black/30 backdrop-blur-xl border-b border-white/10 px-6 flex items-center justify-between h-16">
       <h1 className="font-orbitron text-2xl brand-gradient">AI‑YouTube Studio</h1>
 
       <button

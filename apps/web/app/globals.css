@@ -60,18 +60,30 @@ body {
 .text-center {
   text-align: center;
 }
+.p-8 {
+  padding: 2rem;
+}
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
 .mb-6 {
   margin-bottom: 1.5rem;
+}
+.mt-4 {
+  margin-top: 1rem;
 }
 .mt-6 {
   margin-top: 1.5rem;
 }
 .mt-10 {
   margin-top: 2.5rem;
+}
+.gap-4 {
+  gap: 1rem;
 }
 .gap-6 {
   gap: 1.5rem;
@@ -96,6 +108,9 @@ body {
 .max-w-2xl {
   max-width: 42rem;
 }
+.max-w-xl {
+  max-width: 36rem;
+}
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.6;
@@ -103,6 +118,10 @@ body {
 .text-5xl {
   font-size: 3rem;
   line-height: 1.1;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 /* color utilities (supporting class names with slash) */
@@ -140,15 +159,23 @@ body {
   background: linear-gradient(90deg, #3b82f6, #7c3aed, #f59e0b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Buttons */
 .btn-primary {
-  background: #3b82f6;
+  background: #2563eb;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-family: var(--font-orbitron);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-primary:hover {
+  background: #1e40af;
 }
 .btn-outline {
   background: transparent;
@@ -157,6 +184,9 @@ body {
   border-radius: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   font-family: var(--font-inter);
+}
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.02);
 }
 
 /* Ensure images don't overflow */

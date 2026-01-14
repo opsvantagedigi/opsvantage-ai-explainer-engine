@@ -29,8 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/brand-icon.png" />
-        <link rel="shortcut icon" href="/brand-icon.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/brand-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="/brand-icon.png" />
       </head>
       <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}

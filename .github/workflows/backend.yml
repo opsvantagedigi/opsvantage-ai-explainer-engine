@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,19 +25,33 @@ jobs:
       - name: Install root dependencies
         run: npm ci
 
+      - name: Install API dependencies
+        run: npm ci --prefix apps/api
+
       - name: Lint (root)
         run: npm run lint
 
-      - name: Typecheck
+      - name: Typecheck (root)
         run: npm run typecheck || true
 
       - name: Build API
         run: npm --prefix apps/api run build
 
-      - name: Build Docker image (no push)
+      - name: Log in to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.CR_PAT }}
+
+      - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./apps/api/Dockerfile
-          push: false
-          tags: opsvantagedigi/ai-youtube-studio-api:latest
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/ai-youtube-studio-api:develop-${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/ai-youtube-studio-api:develop-latest
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/ai-youtube-studio-api:develop-latest
+          cache-to: type=registry,ref=ghcr.io/${{ github.repository_owner }}/ai-youtube-studio-api:develop-latest,mode=max

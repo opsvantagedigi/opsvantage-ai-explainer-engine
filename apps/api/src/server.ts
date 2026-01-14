@@ -14,7 +14,12 @@ server.post('/api/v1/video-jobs', async (request, reply) => {
   }
 
   const id = uuidv4();
-  const jobPlaceholder = { id, status: 'created', prompt: body, createdAt: new Date().toISOString() };
+  const jobPlaceholder = {
+    id,
+    status: 'created',
+    prompt: body,
+    createdAt: new Date().toISOString(),
+  };
   store.set(id, jobPlaceholder);
 
   // run pipeline asynchronously (fire-and-forget)

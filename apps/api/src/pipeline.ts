@@ -24,7 +24,12 @@ export async function runPromptToVideo(jobId: string, input: VideoJobCreate): Pr
   const script: ScriptSegment[] = [
     { id: uuidv4(), start: 0, end: 5, text: `Hook: ${input.prompt}` },
     { id: uuidv4(), start: 5, end: 40, text: `Body: Expand on ${input.prompt}` },
-    { id: uuidv4(), start: 40, end: 55, text: `Summary and CTA: ${input.callToAction || 'Subscribe'}` },
+    {
+      id: uuidv4(),
+      start: 40,
+      end: 55,
+      text: `Summary and CTA: ${input.callToAction || 'Subscribe'}`,
+    },
   ];
   fs.writeFileSync(path.join(out, 'script.json'), JSON.stringify(script, null, 2));
 

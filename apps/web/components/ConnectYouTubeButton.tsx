@@ -1,15 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function ConnectYouTubeButton() {
-  const [isConnected, setIsConnected] = useState(false)
-
-  useEffect(() => {
-    const token =
-      typeof window !== 'undefined' ? localStorage.getItem('youtube_access_token') : null
-    setIsConnected(!!token)
-  }, [])
+  const [isConnected, setIsConnected] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !!localStorage.getItem('youtube_access_token')
+    }
+    return false
+  })
 
   const handleClick = () => {
     if (isConnected) return

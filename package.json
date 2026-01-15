@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
+    "deploy:web": "netlify deploy --prod --dir=apps/web/.next",
     "prepare": "husky install",
     "test": "echo \"No tests\"",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",

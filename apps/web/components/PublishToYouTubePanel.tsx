@@ -1,17 +1,17 @@
- 'use client'
+'use client'
 
 import { useState } from 'react'
-import { useSession } from 'next-auth/react'
 
-export default function PublishToYouTubePanel() {
-  const { data: session } = useSession()
+export default function PublishToYouTubePanel({ token }: { token?: string }) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [status, setStatus] = useState<string | null>(null)
   const [isPublishing, setIsPublishing] = useState(false)
 
   const handlePublish = async () => {
-    if (!(session as any)?.accessToken) {
+    const accessToken =
+      token ?? (typeof window !== 'undefined' ? localStorage.getItem('youtube_access_token') : null)
+    if (!accessToken) {
       setStatus('YouTube is not connected.')
       return
     }
@@ -22,7 +22,7 @@ export default function PublishToYouTubePanel() {
     try {
       const res = await fetch('/api/youtube/publish', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${accessToken}` },
         body: JSON.stringify({ title, description, filePath: '/tmp/output.mp4' }),
       })
 
@@ -56,13 +56,13 @@ export default function PublishToYouTubePanel() {
             clearInterval(interval)
             setIsPublishing(false)
           }
-        } catch (err) {
+        } catch {
           setStatus('Error polling job status')
           clearInterval(interval)
           setIsPublishing(false)
         }
       }, 2000)
-    } catch (err) {
+    } catch {
       setStatus('Failed to publish video.')
       setIsPublishing(false)
     }
@@ -70,29 +70,29 @@ export default function PublishToYouTubePanel() {
 
   return (
     <div className="glass-card rounded-2xl p-6">
-      <h2 className="heading-orbitron text-lg mb-4">Publish to YouTube</h2>
+      <h2 className="heading-orbitron mb-4 text-lg">Publish to YouTube</h2>
       <div className="space-y-3 text-xs">
         <input
           type="text"
           placeholder="Video title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-3 py-2 rounded-md bg-black/40 border border-white/10 text-xs"
+          className="w-full rounded-md border border-white/10 bg-black/40 px-3 py-2 text-xs"
         />
         <textarea
           placeholder="Video description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full px-3 py-2 rounded-md bg-black/40 border border-white/10 text-xs h-24"
+          className="h-24 w-full rounded-md border border-white/10 bg-black/40 px-3 py-2 text-xs"
         />
         <button
           onClick={handlePublish}
           disabled={isPublishing}
-          className="px-4 py-2 rounded-full bg-white text-black text-xs heading-orbitron font-bold hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100"
+          className="heading-orbitron rounded-full bg-white px-4 py-2 text-xs font-bold text-black transition-transform hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
         >
           {isPublishing ? 'Publishing…' : 'Publish to YouTube'}
         </button>
-        {status && <p className="text-[11px] text-gray-400 mt-2">{status}</p>}
+        {status && <p className="mt-2 text-[11px] text-gray-400">{status}</p>}
       </div>
     </div>
   )

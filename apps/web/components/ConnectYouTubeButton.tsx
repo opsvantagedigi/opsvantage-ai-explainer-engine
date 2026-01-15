@@ -1,14 +1,27 @@
- 'use client'
+'use client'
 
-import { signIn, useSession } from 'next-auth/react'
+import { useEffect, useState } from 'react'
 
 export default function ConnectYouTubeButton() {
-  const { data: session } = useSession()
-  const isConnected = !!(session as any)?.accessToken
+  const [isConnected, setIsConnected] = useState(false)
+
+  useEffect(() => {
+    const token =
+      typeof window !== 'undefined' ? localStorage.getItem('youtube_access_token') : null
+    setIsConnected(!!token)
+  }, [])
 
   const handleClick = () => {
-    if (!isConnected) {
-      signIn('google')
+    if (isConnected) return
+    const token = window.prompt('Paste YouTube access token (or cancel)')
+    if (token) {
+      try {
+        localStorage.setItem('youtube_access_token', token)
+        window.dispatchEvent(new Event('youtube:connected'))
+        setIsConnected(true)
+      } catch (e) {
+        console.error('Failed to save token', e)
+      }
     }
   }
 
@@ -16,9 +29,9 @@ export default function ConnectYouTubeButton() {
     <button
       onClick={handleClick}
       disabled={isConnected}
-      className={`px-4 py-2 rounded-full text-xs heading-orbitron ${
+      className={`heading-orbitron rounded-full px-4 py-2 text-xs ${
         isConnected
-          ? 'glass-card text-green-400 border-green-500/40 cursor-default'
+          ? 'glass-card cursor-default border-green-500/40 text-green-400'
           : 'glass-card hover:border-white/40'
       }`}
     >

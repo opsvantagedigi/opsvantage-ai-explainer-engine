@@ -1,20 +1,23 @@
 import { NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '../../auth/[...nextauth]/route'
 import { createQueue } from '@repo/queue'
 
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions as any)
-  if (!session || !(session as any).accessToken) {
+  const authHeader = req.headers.get('authorization') || req.headers.get('Authorization')
+  if (!authHeader || !authHeader.toLowerCase().startsWith('bearer ')) {
     return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
   }
 
-  const { title, description, filePath } = await req.json()
+  const accessToken = authHeader.split(' ')[1]
+  if (!accessToken) {
+    return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
+  }
+
+  const { title, description, filePath, refreshToken } = await req.json()
 
   const queue = createQueue('youtube-publish')
   const job = await queue.add('publish', {
-    accessToken: (session as any).accessToken,
-    refreshToken: (session as any).refreshToken,
+    accessToken,
+    refreshToken: refreshToken ?? null,
     title,
     description,
     filePath,

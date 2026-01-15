@@ -1,7 +1,5 @@
 import './globals.css'
 import { Orbitron, Inter } from 'next/font/google'
-import { getServerSession } from 'next-auth'
-import { AuthProvider } from '@/components/AuthProvider'
 import React from 'react'
 
 const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-orbitron' })
@@ -34,17 +32,14 @@ function EnvironmentBanner() {
   )
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await getServerSession()
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${orbitron.variable} ${inter.variable}`}>
       <body suppressHydrationWarning>
         <div className="ambient-bg" />
         <div id="cursor-glow" className="cursor-glow" />
-        <AuthProvider session={session}>
-          <EnvironmentBanner />
-          {children}
-        </AuthProvider>
+        <EnvironmentBanner />
+        {children}
       </body>
     </html>
   )

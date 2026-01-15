@@ -3,13 +3,9 @@
 import { useState } from 'react'
 import { FloatingToolbar } from './components/floating-toolbar'
 import { PreviewPanel } from './components/preview-panel'
-import { getServerSession } from 'next-auth'
-import { AuthButtons } from '@/components/AuthButtons'
-import { DeployStatusIndicator } from '@/components/DeployStatusIndicator'
 
-export default async function StudioPage() {
+export default function StudioPage() {
   const [playing, setPlaying] = useState(false)
-  const session = await getServerSession()
 
   return (
     <div className="grid h-screen grid-rows-[auto_1fr] overflow-hidden">
@@ -24,11 +20,9 @@ export default async function StudioPage() {
           </span>
         </div>
         <div className="flex items-center gap-6">
-          <DeployStatusIndicator />
           <button className="spring-pop rounded-full bg-white px-6 py-2 text-sm font-bold text-black transition-colors hover:bg-yellow-400">
             EXPORT VIDEO
           </button>
-          <AuthButtons session={session} />
         </div>
       </header>
 

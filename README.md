@@ -47,3 +47,4 @@ Next steps
 # AI-YouTube-Studio
 
 Monorepo for Prompt-to-Video web app.
+VS Code environment reset completed on 2026-01-15.

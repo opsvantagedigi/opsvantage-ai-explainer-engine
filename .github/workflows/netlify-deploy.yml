@@ -1,4 +1,5 @@
-﻿name: Trigger Netlify Deploy
+﻿---
+name: Trigger Netlify Deploy
 
 on:
   push:

@@ -1,4 +1,5 @@
-﻿name: Auto-regenerate pnpm lockfile
+﻿---
+name: Auto-regenerate pnpm lockfile
 
 on:
   schedule:

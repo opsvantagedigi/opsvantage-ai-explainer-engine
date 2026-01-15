@@ -1,5 +1,6 @@
 name: OpsVantage CI
 name: CI
+name: CI
 
 on:
   pull_request:
@@ -25,6 +26,11 @@ jobs:
         with:
           version: 9
 
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build web
+        run: pnpm --filter web build
       - name: Install dependencies
         run: pnpm install
 

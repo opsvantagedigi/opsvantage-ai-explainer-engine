@@ -7,7 +7,7 @@ on:
       - develop
 
 jobs:
-  regenerate-lockfile:
+  regenerate:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: pnpm
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -28,7 +28,7 @@ jobs:
       - name: Regenerate lockfile
         run: |
           rm -f pnpm-lock.yaml
-          pnpm install --frozen-lockfile=false
+          pnpm install --lockfile-only
 
       - name: Commit updated lockfile
         uses: stefanzweifel/git-auto-commit-action@v5

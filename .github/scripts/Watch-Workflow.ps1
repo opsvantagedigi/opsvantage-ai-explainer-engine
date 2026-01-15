@@ -7,7 +7,7 @@ Usage:
 param(
     [Parameter(Mandatory=$true)] [string] $Owner,
     [Parameter(Mandatory=$true)] [string] $Repo,
-    [Parameter(Mandatory=$true)] [int] $RunId,
+    [Parameter(Mandatory=$true)] [long] $RunId,
     [int] $IntervalSeconds = 10,
     [int] $TimeoutMinutes = 15
 )

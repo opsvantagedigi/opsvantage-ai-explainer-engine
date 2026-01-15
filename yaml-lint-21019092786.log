@@ -1,0 +1,233 @@
+lint	Set up job	﻿2026-01-15T03:51:54.8989711Z Current runner version: '2.330.0'
+lint	Set up job	2026-01-15T03:51:54.9019773Z ##[group]Runner Image Provisioner
+lint	Set up job	2026-01-15T03:51:54.9020645Z Hosted Compute Agent
+lint	Set up job	2026-01-15T03:51:54.9021193Z Version: 20251211.462
+lint	Set up job	2026-01-15T03:51:54.9021877Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+lint	Set up job	2026-01-15T03:51:54.9022594Z Build Date: 2025-12-11T16:28:49Z
+lint	Set up job	2026-01-15T03:51:54.9023225Z Worker ID: {876f6966-4d61-4957-be41-6d1d8c2b09e1}
+lint	Set up job	2026-01-15T03:51:54.9024387Z ##[endgroup]
+lint	Set up job	2026-01-15T03:51:54.9024996Z ##[group]Operating System
+lint	Set up job	2026-01-15T03:51:54.9025685Z Ubuntu
+lint	Set up job	2026-01-15T03:51:54.9026201Z 24.04.3
+lint	Set up job	2026-01-15T03:51:54.9026684Z LTS
+lint	Set up job	2026-01-15T03:51:54.9027149Z ##[endgroup]
+lint	Set up job	2026-01-15T03:51:54.9027707Z ##[group]Runner Image
+lint	Set up job	2026-01-15T03:51:54.9028275Z Image: ubuntu-24.04
+lint	Set up job	2026-01-15T03:51:54.9028756Z Version: 20260105.202.1
+lint	Set up job	2026-01-15T03:51:54.9029805Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260105.202/images/ubuntu/Ubuntu2404-Readme.md
+lint	Set up job	2026-01-15T03:51:54.9031205Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260105.202
+lint	Set up job	2026-01-15T03:51:54.9032544Z ##[endgroup]
+lint	Set up job	2026-01-15T03:51:54.9033734Z ##[group]GITHUB_TOKEN Permissions
+lint	Set up job	2026-01-15T03:51:54.9035925Z Contents: read
+lint	Set up job	2026-01-15T03:51:54.9036616Z Metadata: read
+lint	Set up job	2026-01-15T03:51:54.9037091Z Packages: read
+lint	Set up job	2026-01-15T03:51:54.9037578Z ##[endgroup]
+lint	Set up job	2026-01-15T03:51:54.9039805Z Secret source: Actions
+lint	Set up job	2026-01-15T03:51:54.9040895Z Prepare workflow directory
+lint	Set up job	2026-01-15T03:51:54.9392182Z Prepare all required actions
+lint	Set up job	2026-01-15T03:51:54.9432079Z Getting action download info
+lint	Set up job	2026-01-15T03:51:55.2587045Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+lint	Set up job	2026-01-15T03:51:55.4494131Z Complete job name: lint
+lint	Checkout	﻿2026-01-15T03:51:55.5343430Z ##[group]Run actions/checkout@v4
+lint	Checkout	2026-01-15T03:51:55.5344813Z with:
+lint	Checkout	2026-01-15T03:51:55.5345295Z   repository: opsvantagedigi/AI-YouTube-Studio
+lint	Checkout	2026-01-15T03:51:55.5346068Z   token: ***
+lint	Checkout	2026-01-15T03:51:55.5346449Z   ssh-strict: true
+lint	Checkout	2026-01-15T03:51:55.5346854Z   ssh-user: git
+lint	Checkout	2026-01-15T03:51:55.5347250Z   persist-credentials: true
+lint	Checkout	2026-01-15T03:51:55.5347683Z   clean: true
+lint	Checkout	2026-01-15T03:51:55.5348084Z   sparse-checkout-cone-mode: true
+lint	Checkout	2026-01-15T03:51:55.5348572Z   fetch-depth: 1
+lint	Checkout	2026-01-15T03:51:55.5348941Z   fetch-tags: false
+lint	Checkout	2026-01-15T03:51:55.5349335Z   show-progress: true
+lint	Checkout	2026-01-15T03:51:55.5349724Z   lfs: false
+lint	Checkout	2026-01-15T03:51:55.5350091Z   submodules: false
+lint	Checkout	2026-01-15T03:51:55.5350482Z   set-safe-directory: true
+lint	Checkout	2026-01-15T03:51:55.5351118Z ##[endgroup]
+lint	Checkout	2026-01-15T03:51:55.6462815Z Syncing repository: opsvantagedigi/AI-YouTube-Studio
+lint	Checkout	2026-01-15T03:51:55.6464831Z ##[group]Getting Git version info
+lint	Checkout	2026-01-15T03:51:55.6465622Z Working directory is '/home/runner/work/AI-YouTube-Studio/AI-YouTube-Studio'
+lint	Checkout	2026-01-15T03:51:55.6466735Z [command]/usr/bin/git version
+lint	Checkout	2026-01-15T03:51:55.6555102Z git version 2.52.0
+lint	Checkout	2026-01-15T03:51:55.6581848Z ##[endgroup]
+lint	Checkout	2026-01-15T03:51:55.6605723Z Temporarily overriding HOME='/home/runner/work/_temp/29eac343-61a6-4f88-b58d-31e43632c5d3' before making global git config changes
+lint	Checkout	2026-01-15T03:51:55.6608084Z Adding repository directory to the temporary git global config as a safe directory
+lint	Checkout	2026-01-15T03:51:55.6612519Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AI-YouTube-Studio/AI-YouTube-Studio
+lint	Checkout	2026-01-15T03:51:55.6655672Z Deleting the contents of '/home/runner/work/AI-YouTube-Studio/AI-YouTube-Studio'
+lint	Checkout	2026-01-15T03:51:55.6659577Z ##[group]Initializing the repository
+lint	Checkout	2026-01-15T03:51:55.6664583Z [command]/usr/bin/git init /home/runner/work/AI-YouTube-Studio/AI-YouTube-Studio
+lint	Checkout	2026-01-15T03:51:55.6795548Z hint: Using 'master' as the name for the initial branch. This default branch name
+lint	Checkout	2026-01-15T03:51:55.6796810Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+lint	Checkout	2026-01-15T03:51:55.6798237Z hint: to use in all of your new repositories, which will suppress this warning,
+lint	Checkout	2026-01-15T03:51:55.6799281Z hint: call:
+lint	Checkout	2026-01-15T03:51:55.6799668Z hint:
+lint	Checkout	2026-01-15T03:51:55.6800847Z hint: 	git config --global init.defaultBranch <name>
+lint	Checkout	2026-01-15T03:51:55.6801871Z hint:
+lint	Checkout	2026-01-15T03:51:55.6802904Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+lint	Checkout	2026-01-15T03:51:55.6804739Z hint: 'development'. The just-created branch can be renamed via this command:
+lint	Checkout	2026-01-15T03:51:55.6805994Z hint:
+lint	Checkout	2026-01-15T03:51:55.6806718Z hint: 	git branch -m <name>
+lint	Checkout	2026-01-15T03:51:55.6807467Z hint:
+lint	Checkout	2026-01-15T03:51:55.6808439Z hint: Disable this message with "git config set advice.defaultBranchName false"
+lint	Checkout	2026-01-15T03:51:55.6810225Z Initialized empty Git repository in /home/runner/work/AI-YouTube-Studio/AI-YouTube-Studio/.git/
+lint	Checkout	2026-01-15T03:51:55.6814619Z [command]/usr/bin/git remote add origin https://github.com/opsvantagedigi/AI-YouTube-Studio
+lint	Checkout	2026-01-15T03:51:55.6852277Z ##[endgroup]
+lint	Checkout	2026-01-15T03:51:55.6853472Z ##[group]Disabling automatic garbage collection
+lint	Checkout	2026-01-15T03:51:55.6857591Z [command]/usr/bin/git config --local gc.auto 0
+lint	Checkout	2026-01-15T03:51:55.6888983Z ##[endgroup]
+lint	Checkout	2026-01-15T03:51:55.6890216Z ##[group]Setting up auth
+lint	Checkout	2026-01-15T03:51:55.6896943Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+lint	Checkout	2026-01-15T03:51:55.6929094Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+lint	Checkout	2026-01-15T03:51:55.7280743Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+lint	Checkout	2026-01-15T03:51:55.7313029Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+lint	Checkout	2026-01-15T03:51:55.7536898Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+lint	Checkout	2026-01-15T03:51:55.7570191Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+lint	Checkout	2026-01-15T03:51:55.7797487Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+lint	Checkout	2026-01-15T03:51:55.7833435Z ##[endgroup]
+lint	Checkout	2026-01-15T03:51:55.7835150Z ##[group]Fetching the repository
+lint	Checkout	2026-01-15T03:51:55.7843338Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bcaf63711aca563bcca1ab8a8b5bb71e61856393:refs/remotes/origin/main
+lint	Checkout	2026-01-15T03:51:56.1963181Z From https://github.com/opsvantagedigi/AI-YouTube-Studio
+lint	Checkout	2026-01-15T03:51:56.1965261Z  * [new ref]         bcaf63711aca563bcca1ab8a8b5bb71e61856393 -> origin/main
+lint	Checkout	2026-01-15T03:51:56.1999374Z ##[endgroup]
+lint	Checkout	2026-01-15T03:51:56.2000243Z ##[group]Determining the checkout info
+lint	Checkout	2026-01-15T03:51:56.2001422Z ##[endgroup]
+lint	Checkout	2026-01-15T03:51:56.2006739Z [command]/usr/bin/git sparse-checkout disable
+lint	Checkout	2026-01-15T03:51:56.2047952Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+lint	Checkout	2026-01-15T03:51:56.2072799Z ##[group]Checking out the ref
+lint	Checkout	2026-01-15T03:51:56.2076478Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+lint	Checkout	2026-01-15T03:51:56.2244856Z Switched to a new branch 'main'
+lint	Checkout	2026-01-15T03:51:56.2246177Z branch 'main' set up to track 'origin/main'.
+lint	Checkout	2026-01-15T03:51:56.2256105Z ##[endgroup]
+lint	Checkout	2026-01-15T03:51:56.2294464Z [command]/usr/bin/git log -1 --format=%H
+lint	Checkout	2026-01-15T03:51:56.2316519Z bcaf63711aca563bcca1ab8a8b5bb71e61856393
+lint	Install yamllint	﻿2026-01-15T03:51:56.2508176Z ##[group]Run sudo apt-get update && sudo apt-get install -y yamllint
+lint	Install yamllint	2026-01-15T03:51:56.2509109Z [36;1msudo apt-get update && sudo apt-get install -y yamllint[0m
+lint	Install yamllint	2026-01-15T03:51:56.2545449Z shell: /usr/bin/bash -e {0}
+lint	Install yamllint	2026-01-15T03:51:56.2545963Z ##[endgroup]
+lint	Install yamllint	2026-01-15T03:51:56.3306378Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+lint	Install yamllint	2026-01-15T03:51:56.3659631Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+lint	Install yamllint	2026-01-15T03:51:56.3665189Z Get:6 https://packages.microsoft.com/repos/azure-cli noble InRelease [3564 B]
+lint	Install yamllint	2026-01-15T03:51:56.3669458Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+lint	Install yamllint	2026-01-15T03:51:56.3672342Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+lint	Install yamllint	2026-01-15T03:51:56.3725861Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+lint	Install yamllint	2026-01-15T03:51:56.3769935Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+lint	Install yamllint	2026-01-15T03:51:56.5012805Z Get:8 https://packages.microsoft.com/repos/azure-cli noble/main amd64 Packages [1948 B]
+lint	Install yamllint	2026-01-15T03:51:56.5448331Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [11.4 kB]
+lint	Install yamllint	2026-01-15T03:51:56.5554923Z Get:10 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [61.7 kB]
+lint	Install yamllint	2026-01-15T03:51:56.5620668Z Get:11 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [80.1 kB]
+lint	Install yamllint	2026-01-15T03:51:56.5944539Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1693 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6067030Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [313 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6078616Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6112213Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [15.9 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6140228Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1511 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6211051Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [307 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6237522Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [378 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6270152Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [31.4 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6285732Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2426 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6436381Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [554 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6921293Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+lint	Install yamllint	2026-01-15T03:51:56.6935284Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+lint	Install yamllint	2026-01-15T03:51:56.6946154Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7300 B]
+lint	Install yamllint	2026-01-15T03:51:56.6968060Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [10.5 kB]
+lint	Install yamllint	2026-01-15T03:51:56.6978417Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+lint	Install yamllint	2026-01-15T03:51:56.7022443Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+lint	Install yamllint	2026-01-15T03:51:56.7039105Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1404 kB]
+lint	Install yamllint	2026-01-15T03:51:56.7114779Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [228 kB]
+lint	Install yamllint	2026-01-15T03:51:56.7136570Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [21.5 kB]
+lint	Install yamllint	2026-01-15T03:51:56.7152670Z Get:31 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [9724 B]
+lint	Install yamllint	2026-01-15T03:51:56.7164424Z Get:32 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [920 kB]
+lint	Install yamllint	2026-01-15T03:51:56.7215340Z Get:33 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [209 kB]
+lint	Install yamllint	2026-01-15T03:51:56.7236852Z Get:34 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [71.5 kB]
+lint	Install yamllint	2026-01-15T03:51:56.7254264Z Get:35 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [19.7 kB]
+lint	Install yamllint	2026-01-15T03:51:56.7725362Z Get:36 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [2302 kB]
+lint	Install yamllint	2026-01-15T03:51:56.7834952Z Get:37 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [527 kB]
+lint	Install yamllint	2026-01-15T03:51:56.7885682Z Get:38 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+lint	Install yamllint	2026-01-15T03:51:56.7899113Z Get:39 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [6188 B]
+lint	Install yamllint	2026-01-15T03:51:56.7910283Z Get:40 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [212 B]
+lint	Install yamllint	2026-01-15T03:52:05.5874126Z Fetched 13.7 MB in 2s (8300 kB/s)
+lint	Install yamllint	2026-01-15T03:52:06.4005799Z Reading package lists...
+lint	Install yamllint	2026-01-15T03:52:06.4335745Z Reading package lists...
+lint	Install yamllint	2026-01-15T03:52:06.6423371Z Building dependency tree...
+lint	Install yamllint	2026-01-15T03:52:06.6431402Z Reading state information...
+lint	Install yamllint	2026-01-15T03:52:06.8217545Z The following additional packages will be installed:
+lint	Install yamllint	2026-01-15T03:52:06.8218504Z   python3-pathspec
+lint	Install yamllint	2026-01-15T03:52:06.8399943Z The following NEW packages will be installed:
+lint	Install yamllint	2026-01-15T03:52:06.8400670Z   python3-pathspec yamllint
+lint	Install yamllint	2026-01-15T03:52:06.8580707Z 0 upgraded, 2 newly installed, 0 to remove and 122 not upgraded.
+lint	Install yamllint	2026-01-15T03:52:06.8581795Z Need to get 71.6 kB of archives.
+lint	Install yamllint	2026-01-15T03:52:06.8582425Z After this operation, 321 kB of additional disk space will be used.
+lint	Install yamllint	2026-01-15T03:52:06.8583141Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+lint	Install yamllint	2026-01-15T03:52:06.9030337Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 python3-pathspec all 0.12.1-1 [24.5 kB]
+lint	Install yamllint	2026-01-15T03:52:06.9338928Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 yamllint all 1.33.0-1 [47.2 kB]
+lint	Install yamllint	2026-01-15T03:52:07.2028052Z Fetched 71.6 kB in 0s (820 kB/s)
+lint	Install yamllint	2026-01-15T03:52:07.2252877Z Selecting previously unselected package python3-pathspec.
+lint	Install yamllint	2026-01-15T03:52:07.2555784Z (Reading database ... 
+lint	Install yamllint	2026-01-15T03:52:07.2556273Z (Reading database ... 5%
+lint	Install yamllint	2026-01-15T03:52:07.2556524Z (Reading database ... 10%
+lint	Install yamllint	2026-01-15T03:52:07.2556779Z (Reading database ... 15%
+lint	Install yamllint	2026-01-15T03:52:07.2557018Z (Reading database ... 20%
+lint	Install yamllint	2026-01-15T03:52:07.2557300Z (Reading database ... 25%
+lint	Install yamllint	2026-01-15T03:52:07.2557528Z (Reading database ... 30%
+lint	Install yamllint	2026-01-15T03:52:07.2557802Z (Reading database ... 35%
+lint	Install yamllint	2026-01-15T03:52:07.2558025Z (Reading database ... 40%
+lint	Install yamllint	2026-01-15T03:52:07.2558239Z (Reading database ... 45%
+lint	Install yamllint	2026-01-15T03:52:07.2558458Z (Reading database ... 50%
+lint	Install yamllint	2026-01-15T03:52:07.2662288Z (Reading database ... 55%
+lint	Install yamllint	2026-01-15T03:52:07.6274534Z (Reading database ... 60%
+lint	Install yamllint	2026-01-15T03:52:07.7543484Z (Reading database ... 65%
+lint	Install yamllint	2026-01-15T03:52:07.7904314Z (Reading database ... 70%
+lint	Install yamllint	2026-01-15T03:52:07.9016217Z (Reading database ... 75%
+lint	Install yamllint	2026-01-15T03:52:08.0786867Z (Reading database ... 80%
+lint	Install yamllint	2026-01-15T03:52:08.3022947Z (Reading database ... 85%
+lint	Install yamllint	2026-01-15T03:52:08.4712343Z (Reading database ... 90%
+lint	Install yamllint	2026-01-15T03:52:08.6445916Z (Reading database ... 95%
+lint	Install yamllint	2026-01-15T03:52:08.6446370Z (Reading database ... 100%
+lint	Install yamllint	2026-01-15T03:52:08.6446963Z (Reading database ... 217518 files and directories currently installed.)
+lint	Install yamllint	2026-01-15T03:52:08.6491805Z Preparing to unpack .../python3-pathspec_0.12.1-1_all.deb ...
+lint	Install yamllint	2026-01-15T03:52:08.6524919Z Unpacking python3-pathspec (0.12.1-1) ...
+lint	Install yamllint	2026-01-15T03:52:08.6804128Z Selecting previously unselected package yamllint.
+lint	Install yamllint	2026-01-15T03:52:08.6940472Z Preparing to unpack .../yamllint_1.33.0-1_all.deb ...
+lint	Install yamllint	2026-01-15T03:52:08.6952108Z Unpacking yamllint (1.33.0-1) ...
+lint	Install yamllint	2026-01-15T03:52:08.7444511Z Setting up python3-pathspec (0.12.1-1) ...
+lint	Install yamllint	2026-01-15T03:52:08.8954568Z Setting up yamllint (1.33.0-1) ...
+lint	Install yamllint	2026-01-15T03:52:09.0160044Z Processing triggers for man-db (2.12.0-4build2) ...
+lint	Install yamllint	2026-01-15T03:52:09.0187676Z Not building database; man-db/auto-update is not 'true'.
+lint	Install yamllint	2026-01-15T03:52:09.7530247Z 
+lint	Install yamllint	2026-01-15T03:52:09.7530842Z Running kernel seems to be up-to-date.
+lint	Install yamllint	2026-01-15T03:52:09.7531162Z 
+lint	Install yamllint	2026-01-15T03:52:09.7531283Z No services need to be restarted.
+lint	Install yamllint	2026-01-15T03:52:09.7531497Z 
+lint	Install yamllint	2026-01-15T03:52:09.7531604Z No containers need to be restarted.
+lint	Install yamllint	2026-01-15T03:52:09.7531827Z 
+lint	Install yamllint	2026-01-15T03:52:09.7531975Z No user sessions are running outdated binaries.
+lint	Install yamllint	2026-01-15T03:52:09.7532245Z 
+lint	Install yamllint	2026-01-15T03:52:09.7532490Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+lint	Lint YAML files	﻿2026-01-15T03:52:10.8704205Z ##[group]Run yamllint .
+lint	Lint YAML files	2026-01-15T03:52:10.8704486Z [36;1myamllint .[0m
+lint	Lint YAML files	2026-01-15T03:52:10.8737739Z shell: /usr/bin/bash -e {0}
+lint	Lint YAML files	2026-01-15T03:52:10.8737974Z ##[endgroup]
+lint	Lint YAML files	2026-01-15T03:52:12.2156163Z ##[group]./.github/workflows/yaml-lint.yml
+lint	Lint YAML files	2026-01-15T03:52:12.2182826Z ##[warning]4:1 [truthy] truthy value should be one of [false, true]
+lint	Lint YAML files	2026-01-15T03:52:12.2189655Z ##[endgroup]
+lint	Lint YAML files	2026-01-15T03:52:12.2189785Z 
+lint	Lint YAML files	2026-01-15T03:52:12.2190038Z ##[group]./.github/workflows/backend.yml
+lint	Lint YAML files	2026-01-15T03:52:12.2190979Z ##[warning]4:1 [truthy] truthy value should be one of [false, true]
+lint	Lint YAML files	2026-01-15T03:52:12.2193054Z ##[error]46:1 [empty-lines] too many blank lines (4 > 0)
+lint	Lint YAML files	2026-01-15T03:52:12.2194266Z ##[endgroup]
+lint	Lint YAML files	2026-01-15T03:52:12.2194376Z 
+lint	Lint YAML files	2026-01-15T03:52:12.2258736Z ##[error]Process completed with exit code 1.
+lint	Post Checkout	﻿2026-01-15T03:52:12.2356509Z Post job cleanup.
+lint	Post Checkout	2026-01-15T03:52:12.3309847Z [command]/usr/bin/git version
+lint	Post Checkout	2026-01-15T03:52:12.3346414Z git version 2.52.0
+lint	Post Checkout	2026-01-15T03:52:12.3389692Z Temporarily overriding HOME='/home/runner/work/_temp/7e16247e-3a99-4e23-8830-9cb800d65d87' before making global git config changes
+lint	Post Checkout	2026-01-15T03:52:12.3391042Z Adding repository directory to the temporary git global config as a safe directory
+lint	Post Checkout	2026-01-15T03:52:12.3395500Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AI-YouTube-Studio/AI-YouTube-Studio
+lint	Post Checkout	2026-01-15T03:52:12.3436435Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+lint	Post Checkout	2026-01-15T03:52:12.3468210Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+lint	Post Checkout	2026-01-15T03:52:12.3696392Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+lint	Post Checkout	2026-01-15T03:52:12.3718491Z http.https://github.com/.extraheader
+lint	Post Checkout	2026-01-15T03:52:12.3730895Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+lint	Post Checkout	2026-01-15T03:52:12.3761326Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+lint	Post Checkout	2026-01-15T03:52:12.3982418Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+lint	Post Checkout	2026-01-15T03:52:12.4014674Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+lint	Complete job	﻿2026-01-15T03:52:12.4364681Z Cleaning up orphan processes

@@ -7,7 +7,7 @@ Usage:
 param(
     [Parameter(Mandatory=$true)] [string] $Owner,
     [Parameter(Mandatory=$true)] [string] $Repo,
-    [Parameter(Mandatory=$true)] [int] $RunId
+    [Parameter(Mandatory=$true)] [long] $RunId
 )
 if (-not $env:GITHUB_TOKEN) {
     Write-Error 'GITHUB_TOKEN environment variable is not set. Set it with $env:GITHUB_TOKEN = "<PAT>"'

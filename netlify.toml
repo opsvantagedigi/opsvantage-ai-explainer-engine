@@ -1,8 +1,8 @@
 [build]
-  # Run commands from the apps/web subdirectory so the Next plugin sees expected output
-  base = "apps/web"
-  command = "pnpm install && pnpm build"
-  publish = ".next"
+  # Build from workspace root so Turbopack and pnpm workspace resolve correctly
+  base = "."
+  command = "pnpm install && pnpm --filter web build"
+  publish = "apps/web/.next"
   environment = { NODE_VERSION = "20" }
 
 [context.production.environment]
@@ -12,12 +12,7 @@
   package = "@netlify/plugin-nextjs"
 
 [context.development]
-  command = "cd apps/web && pnpm install && pnpm build"
+  command = "pnpm install && pnpm --filter web build"
 
 [context.staging]
-  command = "cd apps/web && pnpm install && pnpm build"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  command = "pnpm install && pnpm --filter web build"

@@ -1,24 +1,15 @@
-type RedisConnection = {
-  host?: string
-  port?: number
-  password?: string
+
+import { Queue, Worker, QueueEvents } from 'bullmq';
+import { redisConnection } from './redis';
+
+export function createQueue(name: string) {
+  return new Queue(name, { connection: redisConnection });
 }
 
-export const connection: RedisConnection = {
-  host: process.env.REDIS_HOST || '127.0.0.1',
-  port: process.env.REDIS_PORT ? Number(process.env.REDIS_PORT) : 6379,
-  password: process.env.REDIS_PASSWORD || undefined,
+export function createWorker(name: string, processor: any) {
+  return new Worker(name, processor, { connection: redisConnection });
 }
 
-let _youtubePublishQueue: any = null
-
-export function getYoutubePublishQueue() {
-  if (_youtubePublishQueue) return _youtubePublishQueue
-  // Require bullmq at runtime to avoid bundling Node-only deps into Next.js build
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const { Queue } = require('bullmq')
-  _youtubePublishQueue = new Queue('youtube-publish', { connection })
-  return _youtubePublishQueue
+export function createQueueEvents(name: string) {
+  return new QueueEvents(name, { connection: redisConnection });
 }
-
-export { }

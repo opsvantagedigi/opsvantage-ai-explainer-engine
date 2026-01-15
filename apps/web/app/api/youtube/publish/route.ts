@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../../auth/[...nextauth]/route'
-import { getYoutubePublishQueue } from '@repo/queue'
+import { createQueue } from '@repo/queue'
 
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions as any)
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
   const { title, description, filePath } = await req.json()
 
-  const queue = getYoutubePublishQueue()
+  const queue = createQueue('youtube-publish')
   const job = await queue.add('publish', {
     accessToken: (session as any).accessToken,
     refreshToken: (session as any).refreshToken,

@@ -1,3 +1,5 @@
-name = "ai-youtube-studio"
-compatibility_date = "2024-01-01"
-pages_build_output_dir = ".vercel/output/static"
+## Wrangler config removed — Cloudflare Pages integration disabled.
+# The original file pointed Pages output to ".vercel/output/static".
+# Kept for history but Cloudflare deploys are disabled; Vercel is the
+# target platform.
+

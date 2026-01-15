@@ -1,39 +1,14 @@
-name: Deploy to Cloudflare Pages
+name: Cloudflare deployment (disabled)
 
+# This workflow was neutralized to disable Cloudflare Pages deploys.
+# Repo is being consolidated to Vercel-only hosting; the original
+# Cloudflare workflow was kept for history but does nothing.
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch: {}
 
 jobs:
-  deploy:
+  noop:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build for Cloudflare
-        run: pnpm --filter web build:cf
-
-      - name: Install Wrangler
-        run: npm install -g wrangler
-
-      - name: Deploy to Cloudflare Pages
-        run: wrangler pages deploy apps/web/.vercel/output/static --project-name=ai-youtube-studio
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: No-op
+        run: echo "Cloudflare Pages deploy removed; use Vercel for deployments."

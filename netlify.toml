@@ -1,30 +1,6 @@
 
-[build]
-  # Build from workspace root so Turbopack and pnpm workspace resolve correctly
-  base = "."
-  command = "pnpm install && pnpm --filter web build"
-  publish = "apps/web/.next"
-  environment = { NODE_VERSION = "20" }
+## Netlify configuration removed — Netlify deployment is disabled.
+# The project is now Vercel-first; this file is preserved for history but
+# Netlify-specific deploy configuration has been neutralized to prevent
+# accidental Netlify deploys.
 
-
-[context.production]
-  command = "pnpm install && pnpm --filter web build"
-  publish = "apps/web/.next"
-  environment = { NODE_ENV = "production" }
-
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-
-[context.deploy-preview]
-  command = "pnpm install && pnpm --filter web build"
-  publish = "apps/web/.next"
-
-
-[context."branch=staging"]
-  command = "pnpm install && pnpm --filter web build"
-  publish = "apps/web/.next"
-
-[context.staging]
-  command = "pnpm install && pnpm --filter web build"

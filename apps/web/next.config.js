@@ -12,11 +12,16 @@ module.exports = {
   outputFileTracingRoot: path.resolve(__dirname),
 }
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Tell Turbopack where the workspace root lives relative to this app
-  turbopack: {
-    root: '../../',
+module.exports = {
+  // Ensure Turbopack uses the app directory as the project root in CI
+  experimental: {
+    turbopack: {
+      root: path.resolve(__dirname),
+    },
   },
+  // Match Next's file-tracing root to the turbopack root
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
+  outputFileTracingRoot: path.resolve(__dirname),
 }
-
-module.exports = nextConfig

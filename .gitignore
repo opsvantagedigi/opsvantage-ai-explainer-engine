@@ -8,3 +8,7 @@ dist
 
 # Local Netlify folder
 .netlify
+
+# Ignore Next.js and Vercel build artifacts
+.next
+.vercel

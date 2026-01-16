@@ -1,5 +1,5 @@
-import { VideoJob, ScriptSegment, VideoJobCreate } from '@/models'
-import { logUsageEvent } from '@/utils/logUsageEvent'
+import { VideoJob, ScriptSegment, VideoJobCreate } from './models'
+import { logUsageEvent } from './utils/logUsageEvent'
 import { v4 as uuidv4 } from 'uuid'
 import * as fs from 'fs'
 import * as path from 'path'

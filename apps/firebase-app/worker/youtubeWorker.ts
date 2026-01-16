@@ -1,9 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import { google } from 'googleapis'
-import { Worker } from 'bullmq'
-import { connection } from '../../packages/queue'
-import { logUsageEvent } from '../../packages/common/logUsageEvent.js'
+import { createWorker } from '../lib/queue'
+import { logUsageEvent } from '../src/utils/logUsageEvent'
 
 async function uploadToYouTube(job: any) {
   const { accessToken, refreshToken, title, description, filePath } = job.data
@@ -51,12 +50,11 @@ async function uploadToYouTube(job: any) {
   return res.data
 }
 
-new Worker(
+createWorker(
   'youtube-publish',
-  async (job) => {
+  async (job: any) => {
     return await uploadToYouTube(job)
   },
-  { connection: connection as any },
 )
 
 console.log('YouTube Worker is running...')

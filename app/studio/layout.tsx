@@ -179,7 +179,7 @@ export default function StudioLayout({ children }: { children: ReactNode }) {
             </button>
           </div>
         </header>
-        <CommandPalette open={showCommand} onOpenChange={setShowCommand} />
+        {showCommand && <CommandPalette onOpenChange={setShowCommand} />}
         {children}
       </main>
     </div>

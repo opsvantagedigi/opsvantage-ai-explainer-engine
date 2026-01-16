@@ -5,7 +5,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "build:favicon": "node scripts/generate-favicon.js"
+    "build:favicon": "node scripts/generate-favicon.js",
+    "prepare": "husky"
   },
   "workspaces": [
     "apps/*",

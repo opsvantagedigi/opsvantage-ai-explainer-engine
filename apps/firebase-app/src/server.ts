@@ -7,7 +7,7 @@ const server = Fastify({
 
 // server.register(bullBoardApp, { prefix: '/admin/queues' })
 
-server.listen({ port: process.env.PORT || 3001 }, (err, address) => {
+server.listen({ port: parseInt(process.env.PORT || '3001') }, (err, address) => {
   if (err) {
     server.log.error(err)
     process.exit(1)

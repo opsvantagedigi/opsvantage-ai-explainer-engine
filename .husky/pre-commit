@@ -1,4 +1,1 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-/home/user/.global_modules/bin/pnpm lint-staged
+npm test

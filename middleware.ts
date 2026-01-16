@@ -1,23 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@/lib/auth/config'
+import { auth } from 'apps/firebase-app/lib/auth/config'
 
 export async function middleware(req: NextRequest) {
   // Determine if this is a protected route
-  const isStudioRoute = req.nextUrl.pathname.startsWith('/studio')
+  const { pathname } = req.nextUrl
 
-  // Load the session using the new Next.js 16 proxy middleware pattern
-  const session = await auth(req)
+  // if (pathname.startsWith('/studio')) {
+  //   const session = await auth()
+  //   if (!session) {
+  //     return NextResponse.redirect(new URL('/auth/signin', req.url))
+  //   }
+  // }
 
-  // If user is not authenticated and tries to access /studio, redirect to sign-in
-  if (isStudioRoute && !session) {
-    const signInUrl = new URL('/auth/signin', req.url)
-    return NextResponse.redirect(signInUrl)
-  }
-
-  // Allow request to continue
   return NextResponse.next()
-}
-
-export const config = {
-  matcher: ['/studio/:path*'],
 }

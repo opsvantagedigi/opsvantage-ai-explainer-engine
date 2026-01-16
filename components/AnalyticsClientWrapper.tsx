@@ -1,3 +1,4 @@
+/* global globalThis */
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -25,7 +26,7 @@ function AnalyticsInner() {
         { label: 'Subscribers Gained', value: '—' },
       ])
     }
-  }, [isConnected])
+  }, [isConnected, metrics, setMetrics])
 
   return (
     <div className="mx-auto max-w-5xl p-8">

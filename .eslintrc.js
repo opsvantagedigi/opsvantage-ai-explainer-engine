@@ -1,13 +1,6 @@
-module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react'],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-  ],
-  rules: {
-    '@typescript-eslint/no-require-imports': 'error',
-  },
-}
+module.exports = { 
+    extends: ["eslint:recommended", "next"],
+    rules: {
+        "no-unused-vars": "warn",
+    }
+};

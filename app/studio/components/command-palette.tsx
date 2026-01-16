@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { Search, Sparkles, Video, Settings, LayoutDashboard } from 'lucide-react';
 
 interface CommandPaletteProps {
-  open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
@@ -16,15 +15,13 @@ const actions = [
   { label: 'Open Settings', href: '/studio/settings', icon: Settings },
 ];
 
-export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
+export function CommandPalette({ onOpenChange }: CommandPaletteProps) {
   const [query, setQuery] = useState('');
   const router = useRouter();
 
   useEffect(() => {
-    if (!open) Promise.resolve().then(() => setQuery(''));
-  }, [open]);
-
-  if (!open) return null;
+    Promise.resolve().then(() => setQuery(''));
+  }, []);
 
   const filtered = actions.filter((a) => a.label.toLowerCase().includes(query.toLowerCase()));
 

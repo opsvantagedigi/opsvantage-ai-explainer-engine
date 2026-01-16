@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Hero() {
   return (
     <section className="px-6 pb-20 pt-32">
@@ -33,9 +35,11 @@ export default function Hero() {
         <div className="perspective-1000 group relative">
           <div className="absolute inset-0 -z-10 bg-gradient-to-t from-blue-600/20 to-transparent opacity-50 blur-3xl" />
           <div className="glass-card group-hover:-rotate-x-2 overflow-hidden rounded-2xl border-white/20 shadow-2xl transition-transform duration-700">
-            <img
+            <Image
               src="/studio-preview.png"
               alt="Studio Preview"
+              width={1920}
+              height={1080}
               className="w-full opacity-90 transition-opacity group-hover:opacity-100"
             />
           </div>

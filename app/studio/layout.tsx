@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import CommandPalette from './components'
+import CommandPalette from './components/command-palette'
 import { Menu, X, LayoutDashboard, FolderKanban, Sparkles, BarChart3 } from 'lucide-react'
 import { useSession, signOut } from 'next-auth/react'
 

@@ -2,6 +2,8 @@ import { type NextAuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import { SupabaseAdapter } from '@auth/supabase-adapter'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
+import { getToken } from 'next-auth/jwt'
+import type { NextRequest } from 'next/server'
 
 /**
  * Returns a Supabase client using the Service Role key.
@@ -35,3 +37,11 @@ export const authOptions: NextAuthOptions = {
 }
 
 export default authOptions
+
+/**
+ * Minimal auth wrapper used by middleware to validate the session from cookies.
+ * Returns the token/session object or null.
+ */
+export async function auth(req: NextRequest) {
+  return await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
+}

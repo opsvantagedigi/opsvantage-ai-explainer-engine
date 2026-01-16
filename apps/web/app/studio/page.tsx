@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import { useState } from 'react'
 import { FloatingToolbar } from './components/floating-toolbar'
 import { PreviewPanel } from './components/preview-panel'

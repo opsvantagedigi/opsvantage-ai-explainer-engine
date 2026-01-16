@@ -12,3 +12,5 @@ dist
 # Ignore Next.js and Vercel build artifacts
 .next
 .vercel
+apps/web/.next
+apps/web/.vercel

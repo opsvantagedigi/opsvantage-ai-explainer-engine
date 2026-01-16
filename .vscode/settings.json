@@ -1,5 +1,12 @@
 {
   "terminal.integrated.cwd": "C:\\Users\\AjaySidal\\AI-YouTube-Studio\\apps\\web",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
   "files.encoding": "utf8",
   "files.eol": "\n",
   "files.insertFinalNewline": true,
@@ -9,6 +16,6 @@
   "yaml.validate": true,
   "yaml.format.enable": true,
   "yaml.schemas": {
-    "https://json.schemastore.org/github-workflow.json": "file:///C:/Users/AjaySidal/AI-YouTube-Studio/.github/workflows/*.yml"
+    "https://json.schemastore.org/github-workflow.json": ".github/workflows/*.yml"
   }
 }

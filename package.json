@@ -10,7 +10,7 @@
   "scripts": {
     "prepare": "husky install",
     "test": "echo \"No tests\"",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint .",
     "build:web": "pnpm --filter apps/web build",
     "start:web": "pnpm --filter apps/web dev",
     "format": "prettier --write .",

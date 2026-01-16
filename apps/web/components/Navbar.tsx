@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import React from 'react'
-import AuthButtons from '@/components/auth/AuthButtons'
+import AuthButtons from '~/components/auth/AuthButtons'
 
 export default function Navbar() {
   return (

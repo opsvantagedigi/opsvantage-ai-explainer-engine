@@ -1,7 +1,7 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@/lib/auth/config'
 
-export async function middleware(req) {
+export async function middleware(req: NextRequest) {
   // Determine if this is a protected route
   const isStudioRoute = req.nextUrl.pathname.startsWith('/studio')
 

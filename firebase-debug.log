@@ -898,3 +898,267 @@
     at async handle (/nix/store/c776mhyhgykcld7p90ajrka149ifn61a-firebase-tools-14.26.0/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:89:17)
 [error] 
 [error] Error: There was an error deploying functions
+[debug] [2026-01-19T03:19:48.562Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:19:48.567Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:19:48.567Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:19:48.593Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:19:48.593Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:19:48.594Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:19:48.600Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:19:50.771Z] No OAuth tokens found
+[debug] [2026-01-19T03:19:50.775Z] No OAuth tokens found
+[debug] [2026-01-19T03:19:50.776Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:19:52.927Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:19:52.929Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:19:52.929Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:19:52.938Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:19:52.938Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:19:52.939Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:19:52.944Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:19:52.945Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:19:52.945Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:19:52.948Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:19:52.948Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:19:52.948Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:19:52.950Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:19:52.950Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:19:55.078Z] No OAuth tokens found
+[debug] [2026-01-19T03:19:55.086Z] No OAuth tokens found
+[debug] [2026-01-19T03:19:55.086Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:19:55.091Z] No OAuth tokens found
+[debug] [2026-01-19T03:19:55.092Z] No OAuth tokens found
+[debug] [2026-01-19T03:19:55.092Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:31:49.078Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:31:49.085Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:31:49.087Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:31:49.095Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:31:49.096Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:31:49.096Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:31:49.098Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:32:48.627Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:32:48.627Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:32:48.628Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:32:48.631Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:32:48.631Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:32:48.631Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:32:48.635Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:32:48.638Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:32:48.640Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:32:48.640Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:32:48.641Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:32:48.641Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:32:48.641Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:32:48.642Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:33:51.300Z] No OAuth tokens found
+[debug] [2026-01-19T03:33:51.300Z] No OAuth tokens found
+[debug] [2026-01-19T03:33:51.301Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:33:51.301Z] No OAuth tokens found
+[debug] [2026-01-19T03:33:51.301Z] No OAuth tokens found
+[debug] [2026-01-19T03:33:51.301Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:33:51.302Z] No OAuth tokens found
+[debug] [2026-01-19T03:33:51.302Z] No OAuth tokens found
+[debug] [2026-01-19T03:33:51.303Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:34:05.543Z] Running auto auth
+[debug] [2026-01-19T03:34:05.544Z] Running auto auth
+[debug] [2026-01-19T03:34:05.544Z] Running auto auth
+[debug] [2026-01-19T03:34:05.625Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
+[debug] [2026-01-19T03:34:05.667Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
+[debug] [2026-01-19T03:34:05.697Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
+[debug] [2026-01-19T03:34:05.993Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
+[debug] [2026-01-19T03:34:05.993Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
+[debug] [2026-01-19T03:34:05.994Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:05.994Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:05.994Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-01-19T03:34:06.014Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.017Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.018Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.018Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.019Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.042Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.043Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.043Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.046Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.046Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.048Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.048Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.051Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.051Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.053Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.053Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.055Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com [none]
+[debug] [2026-01-19T03:34:06.055Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.307Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
+[debug] [2026-01-19T03:34:06.310Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
+[debug] [2026-01-19T03:34:06.310Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:06.310Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:06.310Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-01-19T03:34:06.314Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.314Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.314Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.315Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.315Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.344Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.344Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.344Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.348Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.348Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.351Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.351Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.352Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.352Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.354Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.354Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.355Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com [none]
+[debug] [2026-01-19T03:34:06.355Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.360Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
+[debug] [2026-01-19T03:34:06.360Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
+[debug] [2026-01-19T03:34:06.361Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:06.361Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:06.361Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-01-19T03:34:06.361Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.365Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.365Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.365Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.366Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.380Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:06.381Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.381Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.384Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.384Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.386Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.387Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.387Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.388Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.388Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com [none]
+[debug] [2026-01-19T03:34:06.391Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:06.392Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com [none]
+[debug] [2026-01-19T03:34:06.392Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com x-goog-quota-user=projects/marz-ai
+[debug] [2026-01-19T03:34:07.230Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com 403
+[debug] [2026-01-19T03:34:07.231Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com [omitted]
+[debug] [2026-01-19T03:34:07.263Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com 200
+[debug] [2026-01-19T03:34:07.263Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.263Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com 200
+[debug] [2026-01-19T03:34:07.264Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.290Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com 200
+[debug] [2026-01-19T03:34:07.290Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.329Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com 200
+[debug] [2026-01-19T03:34:07.329Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.355Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com 200
+[debug] [2026-01-19T03:34:07.355Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.356Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:07.356Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:07.356Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:07.410Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:07.427Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:07.427Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:07.428Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:07.428Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:07.428Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:07.433Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:34:07.434Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
+[debug] [2026-01-19T03:34:07.436Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:07.436Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
+[debug] [2026-01-19T03:34:07.690Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com 200
+[debug] [2026-01-19T03:34:07.690Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.713Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
+[debug] [2026-01-19T03:34:07.713Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
+[debug] [2026-01-19T03:34:07.713Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:07.713Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:07.713Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-01-19T03:34:07.716Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:07.716Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:07.716Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:07.720Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:34:07.720Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
+[debug] [2026-01-19T03:34:07.726Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com 200
+[debug] [2026-01-19T03:34:07.726Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.750Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com 200
+[debug] [2026-01-19T03:34:07.750Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.767Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com 200
+[debug] [2026-01-19T03:34:07.767Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.779Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com 403
+[debug] [2026-01-19T03:34:07.781Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com [omitted]
+[debug] [2026-01-19T03:34:07.785Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com 200
+[debug] [2026-01-19T03:34:07.785Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.785Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:07.785Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:07.785Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:07.802Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:07.802Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:07.802Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:07.808Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:07.809Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:07.809Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:07.816Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:34:07.816Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
+[debug] [2026-01-19T03:34:07.816Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:07.817Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
+[debug] [2026-01-19T03:34:07.855Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com 200
+[debug] [2026-01-19T03:34:07.855Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/identitytoolkit.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.868Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com 200
+[debug] [2026-01-19T03:34:07.868Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.869Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com 200
+[debug] [2026-01-19T03:34:07.870Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.898Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com 200
+[debug] [2026-01-19T03:34:07.899Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/storage.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.964Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com 403
+[debug] [2026-01-19T03:34:07.966Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com [omitted]
+[debug] [2026-01-19T03:34:07.989Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com 200
+[debug] [2026-01-19T03:34:07.989Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com [omitted]
+[debug] [2026-01-19T03:34:07.990Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:07.990Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:07.990Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:08.003Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:08.003Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:08.003Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:08.009Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:08.009Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:08.009Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:08.016Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:34:08.016Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
+[debug] [2026-01-19T03:34:08.017Z] No OAuth tokens found
+[debug] [2026-01-19T03:34:08.017Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
+[debug] [2026-01-19T03:34:08.219Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
+[debug] [2026-01-19T03:34:08.222Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
+[debug] [2026-01-19T03:34:08.223Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:08.223Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:08.223Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-01-19T03:34:08.228Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:08.228Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:08.228Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:08.229Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:34:08.229Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
+[debug] [2026-01-19T03:34:08.406Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
+[debug] [2026-01-19T03:34:08.408Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
+[debug] [2026-01-19T03:34:08.408Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:08.408Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:08.408Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-01-19T03:34:08.409Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object
+[debug] [2026-01-19T03:34:08.409Z] Object "/apphosting/0" in "firebase.json" is missing required property: {"missingProperty":"ignore"}
+[debug] [2026-01-19T03:34:08.409Z] Field "/apphosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-19T03:34:08.414Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-19T03:34:08.414Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)

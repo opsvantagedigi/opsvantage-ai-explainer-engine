@@ -24,7 +24,7 @@
     "@typescript-eslint/parser": "^6.21.0",
     "bullmq": "*",
     "clsx": "^2.1.1",
-    "fastify": "^5.6.2",
+    "fastify": "^5.7.1",
     "googleapis": "*",
     "ioredis": "*",
     "lucide-react": "^0.562.0",

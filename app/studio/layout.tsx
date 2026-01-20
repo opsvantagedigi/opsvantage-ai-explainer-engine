@@ -22,11 +22,11 @@ export default function StudioLayout({ children }: { children: ReactNode }) {
     const handleMove = (e: MouseEvent) => {
       const x = e.clientX - 110
       const y = e.clientY - 110
-      (glow as HTMLElement).style.transform = `translate3d(${x}px, ${y}px, 0)`
-      ;(glow as HTMLElement).style.opacity = '1'
+      glow.style.transform = `translate3d(${x}px, ${y}px, 0)`
+      glow.style.opacity = '1'
     }
     const handleLeave = () => {
-      ;(glow as HTMLElement).style.opacity = '0'
+      glow.style.opacity = '0'
     }
 
     window.addEventListener('mousemove', handleMove)
@@ -58,6 +58,7 @@ export default function StudioLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex h-screen overflow-hidden bg-[#050505] text-white">
+      <div id="cursor-glow" className="pointer-events-none fixed -inset-2.5 z-50 rounded-full bg-blue-500/20 opacity-0 blur-3xl transition-opacity" />
       {/* Desktop Sidebar */}
       <aside
         className={`hidden flex-col border-r border-white/10 bg-black/40 transition-all duration-200 md:flex ${

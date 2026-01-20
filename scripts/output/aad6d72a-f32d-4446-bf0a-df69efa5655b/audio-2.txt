@@ -1,1 +1,0 @@
-AUDIO MOCK for segment: Body: Expand on Smoke test from docker

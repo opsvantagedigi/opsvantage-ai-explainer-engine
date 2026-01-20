@@ -1357,3 +1357,4 @@
 [debug] [2026-01-19T03:34:08.414Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
 [debug] [2026-01-19T03:34:08.414Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
 >>>>>>> 2cdf2e9f4fb3428903050cabe46536606205e94b
+[debug] [2026-01-20T21:06:07.280Z] Field "/apphosting" in "firebase.json" is possibly invalid: must be object

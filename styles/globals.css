@@ -1,6 +1,0 @@
-@import "../app/globals.css";
-
-/* Minimal globals file to satisfy imports during build */
-html, body {
-  height: 100%;
-}

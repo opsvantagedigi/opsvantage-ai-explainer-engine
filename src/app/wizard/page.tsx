@@ -2,10 +2,43 @@
 
 import { Logo } from "@/components/Logo";
 import Link from "next/link";
-import { useState, useTransition, useMemo } from "react";
+import { useState, useTransition, useMemo, FC, FormEvent, ChangeEvent } from "react";
 import { generateScript } from "../actions";
 import Calendar from 'react-calendar';
 import './WizardPage.css';
+
+// Type definitions
+interface WizardData {
+    niche?: string;
+    videoIdea?: string;
+    script?: string;
+    startDate: Date;
+    videosPerDay: number;
+    duration: number;
+}
+
+interface StepProps {
+    onNext: (data?: Partial<WizardData>) => void;
+    onBack?: () => void;
+    wizardData: WizardData;
+    setWizardData: (data: WizardData) => void;
+}
+
+interface IdeaStepProps extends StepProps {}
+
+interface ScriptStepProps {
+    script: string;
+    onBack: () => void;
+    onNext: () => void;
+}
+
+interface SchedulingStepProps extends StepProps {}
+
+interface ConfirmationStepProps {
+    onBack: () => void;
+    onConfirm: () => void;
+    wizardData: WizardData;
+}
 
 const niches = [
     "Technology", "History", "Finance", "Gaming", "Science",
@@ -13,11 +46,11 @@ const niches = [
 ];
 
 const BASE_PRICE_PER_VIDEO = 10;
-const DURATION_DISCOUNT = { 1: 1.0, 2: 0.9, 3: 0.85, 4: 0.8 };
+const DURATION_DISCOUNT: { [key: number]: number } = { 1: 1.0, 2: 0.9, 3: 0.85, 4: 0.8 };
 
-const IdeaStep = ({ onNext, wizardData, setWizardData }) => {
+const IdeaStep: FC<IdeaStepProps> = ({ onNext, wizardData, setWizardData }) => {
     const [isPending, startTransition] = useTransition();
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (wizardData.videoIdea && wizardData.videoIdea.trim() && wizardData.niche) {
             startTransition(() => onNext(wizardData));
@@ -25,6 +58,15 @@ const IdeaStep = ({ onNext, wizardData, setWizardData }) => {
             alert("Please select a niche and enter your video idea.");
         }
     };
+
+    const handleNicheChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        setWizardData({ ...wizardData, niche: e.target.value });
+    };
+
+    const handleIdeaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setWizardData({ ...wizardData, videoIdea: e.target.value });
+    };
+
     return (
         <div className="glass-box">
             <h2 className="text-4xl font-bold mb-2 font-display bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-500">Step 1: Describe Your Video</h2>
@@ -32,19 +74,19 @@ const IdeaStep = ({ onNext, wizardData, setWizardData }) => {
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label htmlFor="niche" className="block text-left text-lg font-medium mb-2">Select a Niche</label>
-                    <select id="niche" value={wizardData.niche || ''} onChange={(e) => setWizardData({...wizardData, niche: e.target.value})} className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-blue-500 transition-all text-white">
+                    <select id="niche" value={wizardData.niche || ''} onChange={handleNicheChange} className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-blue-500 transition-all text-white">
                         <option value="" disabled>Choose a category...</option>
                         {niches.map(niche => (<option key={niche} value={niche}>{niche}</option>))}
                     </select>
                 </div>
-                <textarea value={wizardData.videoIdea || ''} onChange={(e) => setWizardData({...wizardData, videoIdea: e.target.value})} placeholder="e.g., 'A 10-minute video about...'" className="w-full h-40 p-4 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-blue-500 placeholder-gray-500" />
+                <textarea value={wizardData.videoIdea || ''} onChange={handleIdeaChange} placeholder="e.g., 'A 10-minute video about...'" className="w-full h-40 p-4 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-blue-500 placeholder-gray-500" />
                 <button type="submit" className="cta-button cta-glow mt-6 w-full" disabled={isPending}>{isPending ? 'Processing...' : 'Next: Generate Script'}</button>
             </form>
         </div>
     );
 };
 
-const ScriptStep = ({ script, onBack, onNext }) => (
+const ScriptStep: FC<ScriptStepProps> = ({ script, onBack, onNext }) => (
     <div className="glass-box">
         <h2 className="text-4xl font-bold mb-4 font-display">Step 2: Review Your Script</h2>
         <div className="text-left bg-gray-800 p-4 rounded-lg whitespace-pre-wrap font-mono text-sm overflow-y-auto max-h-96">{script}</div>
@@ -55,7 +97,7 @@ const ScriptStep = ({ script, onBack, onNext }) => (
     </div>
 );
 
-const SchedulingStep = ({ onBack, onNext, wizardData, setWizardData }) => {
+const SchedulingStep: FC<SchedulingStepProps> = ({ onBack, onNext, wizardData, setWizardData }) => {
     const { startDate, videosPerDay, duration } = wizardData;
     const totalPrice = useMemo(() => {
         if (!videosPerDay || !duration) return 0;
@@ -64,13 +106,19 @@ const SchedulingStep = ({ onBack, onNext, wizardData, setWizardData }) => {
         return totalVideos * BASE_PRICE_PER_VIDEO * discount;
     }, [videosPerDay, duration]);
 
+    const handleDateChange = (value: any) => {
+        if (value && !Array.isArray(value)) {
+          setWizardData({ ...wizardData, startDate: value as Date });
+        }
+      };
+
     return (
         <div className="glass-box">
              <h2 className="text-4xl font-bold mb-4 font-display">Step 3: Schedule Your Content</h2>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h3 className="text-2xl font-bold mb-4 text-left">Select a Start Date</h3>
-                    <Calendar onChange={(date) => setWizardData({...wizardData, startDate: date})} value={startDate} minDate={new Date()} />
+                    <Calendar onChange={handleDateChange} value={startDate} minDate={new Date()} />
                 </div>
                 <div className="flex flex-col justify-between">
                     <div>
@@ -88,19 +136,19 @@ const SchedulingStep = ({ onBack, onNext, wizardData, setWizardData }) => {
                     <div className="mt-6 p-4 rounded-lg bg-gray-800 border border-green-500">
                         <h3 className="text-xl font-bold text-green-400">Estimated Price</h3>
                         <p className="text-4xl font-display font-bold">${totalPrice.toFixed(2)}</p>
-                        <p className="text-sm text-gray-400">for {videosPerDay * duration * 7} videos</p>
+                        <p className="text-sm text-gray-400">for {videosPerDay && duration ? videosPerDay * duration * 7 : 0} videos</p>
                     </div>
                 </div>
             </div>
             <div className="flex justify-between mt-8">
                 <button onClick={onBack} className="secondary-cta-button">Back to Script</button>
-                <button onClick={onNext} className="cta-button cta-glow">Next: Review & Confirm</button>
+                {onNext && <button onClick={onNext} className="cta-button cta-glow">Next: Review & Confirm</button>}
             </div>
         </div>
     );
 };
 
-const ConfirmationStep = ({ onBack, onConfirm, wizardData }) => {
+const ConfirmationStep: FC<ConfirmationStepProps> = ({ onBack, onConfirm, wizardData }) => {
     const { niche, videoIdea, startDate, videosPerDay, duration } = wizardData;
     const totalPrice = useMemo(() => {
         if (!videosPerDay || !duration) return 0;
@@ -133,17 +181,20 @@ const ConfirmationStep = ({ onBack, onConfirm, wizardData }) => {
 
 export default function WizardPage() {
   const [step, setStep] = useState(1);
-  const [wizardData, setWizardData] = useState({ videosPerDay: 1, duration: 1, startDate: new Date() });
+  const [wizardData, setWizardData] = useState<WizardData>({ videosPerDay: 1, duration: 1, startDate: new Date() });
   const [isPending, startTransition] = useTransition();
 
-  const handleNext = (data) => {
-    setWizardData({ ...wizardData, ...data });
+  const handleNext = (data?: Partial<WizardData>) => {
+    const updatedData = { ...wizardData, ...data };
+    setWizardData(updatedData);
     if (step === 1) {
-        startTransition(async () => {
-            const script = await generateScript(data.videoIdea);
-            setWizardData(prev => ({...prev, script}));
-            setStep(2);
-        });
+        if(updatedData.videoIdea && updatedData.niche) {
+            startTransition(async () => {
+                const script = await generateScript(updatedData.videoIdea!, updatedData.niche!);
+                setWizardData(prev => ({...prev, script}));
+                setStep(2);
+            });
+        }
     } else {
         setStep(s => s + 1);
     }
@@ -151,7 +202,6 @@ export default function WizardPage() {
 
   const handleConfirm = () => {
       console.log("Final wizard data:", wizardData);
-      // Here you would trigger the final video generation process
       alert("Video generation process started! You will be notified upon completion.");
   }
 
@@ -168,7 +218,7 @@ export default function WizardPage() {
                  <div className="glass-box"><h2 className="text-4xl font-bold mb-4 font-display">Generating Script...</h2><p className="text-lg">The AI is working its magic.</p></div>
             )}
             {!isPending && step === 1 && <IdeaStep onNext={handleNext} wizardData={wizardData} setWizardData={setWizardData} />}
-            {step === 2 && <ScriptStep script={wizardData.script} onBack={handleBack} onNext={handleNext} />}
+            {step === 2 && wizardData.script && <ScriptStep script={wizardData.script} onBack={handleBack} onNext={handleNext} />}
             {step === 3 && <SchedulingStep onBack={handleBack} onNext={handleNext} wizardData={wizardData} setWizardData={setWizardData} />}
             {step === 4 && <ConfirmationStep onBack={handleBack} onConfirm={handleConfirm} wizardData={wizardData} />}
         </main>

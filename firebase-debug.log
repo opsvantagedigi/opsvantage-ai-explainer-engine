@@ -1,77 +1,8 @@
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2026-01-21T15:56:31.818Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2026-01-21T15:56:31.821Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
-[debug] [2026-01-21T15:56:31.823Z] Checked if tokens are valid: false, expires at: 1769011459072
-[debug] [2026-01-21T15:56:31.824Z] Checked if tokens are valid: false, expires at: 1769011459072
-[debug] [2026-01-21T15:56:31.824Z] > refreshing access token with scopes: []
-[debug] [2026-01-21T15:56:31.827Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2026-01-21T15:56:31.827Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2026-01-21T15:56:31.939Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2026-01-21T15:56:31.944Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2026-01-21T15:56:31.966Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
-[debug] [2026-01-21T15:56:33.093Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
-[debug] [2026-01-21T15:56:33.095Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
-[debug] [2026-01-21T15:56:33.114Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:33.116Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:33.117Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:33.117Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:33.118Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:33.118Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:33.146Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:33.146Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:33.146Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com [none]
-[debug] [2026-01-21T15:56:33.146Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com x-goog-quota-user=projects/marz-ai
-[debug] [2026-01-21T15:56:33.149Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com [none]
-[debug] [2026-01-21T15:56:33.149Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com x-goog-quota-user=projects/marz-ai
-[debug] [2026-01-21T15:56:33.151Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com [none]
-[debug] [2026-01-21T15:56:33.151Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com x-goog-quota-user=projects/marz-ai
-[debug] [2026-01-21T15:56:33.153Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com [none]
-[debug] [2026-01-21T15:56:33.153Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com x-goog-quota-user=projects/marz-ai
-[debug] [2026-01-21T15:56:34.231Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com 403
-[debug] [2026-01-21T15:56:34.232Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseio.com [omitted]
-[debug] [2026-01-21T15:56:34.268Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com 200
-[debug] [2026-01-21T15:56:34.276Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firebaseremoteconfig.googleapis.com [omitted]
-[debug] [2026-01-21T15:56:34.291Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com 200
-[debug] [2026-01-21T15:56:34.291Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/fcm.googleapis.com [omitted]
-[debug] [2026-01-21T15:56:34.293Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com 200
-[debug] [2026-01-21T15:56:34.294Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marz-ai/services/firestore.googleapis.com [omitted]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2026-01-21T15:56:35.260Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2026-01-21T15:56:35.260Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
-[debug] [2026-01-21T15:56:35.266Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:35.267Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:35.267Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
-[debug] [2026-01-21T15:56:35.686Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
-[debug] [2026-01-21T15:56:35.689Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2026-01-21T15:56:35.696Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2026-01-21T15:56:35.697Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2026-01-21T15:56:36.885Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2026-01-21T15:56:36.885Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
-[debug] [2026-01-21T15:56:36.885Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:36.885Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:36.887Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2026-01-21T15:56:36.898Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2026-01-21T15:56:36.898Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
-[debug] [2026-01-21T15:56:36.899Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:36.899Z] Checked if tokens are valid: true, expires at: 1769014590944
-[debug] [2026-01-21T15:56:36.899Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
-[debug] [2026-01-21T15:56:37.316Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
-[debug] [2026-01-21T15:56:37.321Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2026-01-21T15:56:37.328Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2026-01-21T15:56:37.328Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
-[debug] [2026-01-21T15:56:37.993Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200
-[debug] [2026-01-21T15:56:37.994Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo {"name":"projects/marz-ai/billingInfo","projectId":"marz-ai","billingAccountName":"billingAccounts/013099-EF1FD5-68CC10","billingEnabled":true}
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2026-01-21T15:56:37.997Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[debug] [2026-01-21T15:56:37.997Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
+[debug] [2026-01-21T17:09:25.080Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-21T17:09:25.081Z] > authorizing via signed-in user (ajay.sidal@opsvantagedigital.online)
+[debug] [2026-01-21T17:09:25.085Z] Checked if tokens are valid: true, expires at: 1769016852686
+[debug] [2026-01-21T17:09:25.088Z] Checked if tokens are valid: true, expires at: 1769016852686
+[debug] [2026-01-21T17:09:25.093Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo [none]
+[debug] [2026-01-21T17:09:25.550Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/marz-ai/billingInfo 200

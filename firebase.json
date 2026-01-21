@@ -12,7 +12,10 @@
     "rewrites": [
       {
         "source": "/ai-youtube-studio{,/**}",
-        "function": "ssrmarzai"
+        "function": {
+          "functionId": "ssrmarzai",
+          "pinTag": true
+        }
       }
     ]
   },

@@ -8,16 +8,7 @@
     ],
     "frameworksBackend": {
       "region": "us-central1"
-    },
-    "rewrites": [
-      {
-        "source": "/ai-youtube-studio{,/**}",
-        "function": {
-          "functionId": "ssrmarzai",
-          "pinTag": true
-        }
-      }
-    ]
+    }
   },
   "firestore": {
     "rules": "firestore.rules"

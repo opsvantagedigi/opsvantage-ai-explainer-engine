@@ -1,19 +1,19 @@
 {
   "hosting": {
-    "site": "marz-ai",
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    },
     "rewrites": [
       {
-        "source": "**",
-        "run": {
-          "serviceId": "opsvantage-ai-youtube-studio",
-          "region": "us-central1"
-        }
+        "source": "/ai-youtube-studio{,/**}",
+        "function": "ssrmarzai"
       }
-    ]
-  },
-  "apphosting": {
-    "backends": [
-      "opsvantage-ai-youtube-studio"
     ]
   }
 }

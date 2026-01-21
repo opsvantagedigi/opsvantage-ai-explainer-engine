@@ -3,15 +3,15 @@
 import { Logo } from "@/components/Logo";
 import Link from "next/link";
 import { useState, useTransition, useMemo, FC, FormEvent, ChangeEvent, useEffect } from "react";
-import { generateScript, saveProject } from "../../actions"; // Import saveProject
+import { generateScript, saveProject } from "../../actions";
 import Calendar from 'react-calendar';
 import './WizardPage.css';
 import ProtectedRoute from "@/components/ProtectedRoute";
-import { auth } from '../../firebase'; // Import auth
-import { User, onAuthStateChanged } from 'firebase/auth'; // Import User and onAuthStateChanged
-import { useRouter } from 'next/navigation'; // Import useRouter
+import { auth } from '../../firebase';
+import { User, onAuthStateChanged } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
 
-// Type definitions (unchanged)
+// ... (Interface definitions and child components remain the same) ...
 interface WizardData {
     niche?: string;
     videoIdea?: string;
@@ -30,8 +30,6 @@ interface IdeaStepProps extends StepProps {}
 interface ScriptStepProps { script: string; onBack: () => void; onNext: () => void; }
 interface SchedulingStepProps extends StepProps {}
 interface ConfirmationStepProps { onBack: () => void; onConfirm: () => void; wizardData: WizardData; }
-
-// Child components (IdeaStep, ScriptStep, etc.) remain the same
 const niches = ["Technology", "History", "Finance", "Gaming", "Science", "Health & Fitness", "Travel", "Cooking", "DIY & Crafts", "Education"];
 const BASE_PRICE_PER_VIDEO = 10;
 const DURATION_DISCOUNT: { [key: number]: number } = { 1: 1.0, 2: 0.9, 3: 0.85, 4: 0.8 };
@@ -182,6 +180,11 @@ export default function WizardPage() {
         if(updatedData.videoIdea && updatedData.niche) {
             startTransition(async () => {
                 const script = await generateScript(updatedData.videoIdea!, updatedData.niche!);
+                // *** ERROR HANDLING ADDED HERE ***
+                if (script.startsWith("Error:")) {
+                    alert(script); // Show the error from the server action
+                    return; // Stop the transition
+                }
                 setWizardData(prev => ({...prev, script}));
                 setStep(2);
             });

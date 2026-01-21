@@ -50,43 +50,6 @@ export default function Home() {
   return (
     <div className={`min-h-screen bg-[#050a14] text-slate-200 selection:bg-emerald-500 selection:text-white overflow-x-hidden ${inter.variable} ${orbitron.variable} font-sans`}>
       
-      {/* GLOBAL STYLES & UTILITIES */}
-      <style jsx global>{`
-        .font-orbitron { font-family: var(--font-orbitron), sans-serif; }
-        .font-inter { font-family: var(--font-inter), sans-serif; }
-        
-        .glass-card {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .gradient-text {
-          background: linear-gradient(to right, #3b82f6, #10b981, #eab308);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .gradient-border-wrap {
-          position: relative;
-          background: #050a14;
-          z-index: 1;
-        }
-        .gradient-border-wrap::before {
-          content: "";
-          position: absolute;
-          inset: -1px;
-          border-radius: inherit;
-          padding: 1px;
-          background: linear-gradient(to right, #1e3a8a, #064e3b, #713f12); 
-          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          mask-composite: exclude;
-          z-index: -1;
-        }
-      `}</style>
-
       <BusinessNav />
 
       {/* --- HERO SECTION --- */}

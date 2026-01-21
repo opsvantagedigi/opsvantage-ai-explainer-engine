@@ -73,7 +73,7 @@ export default function DashboardPage() {
                     {projects.length === 0 ? (
                         <div className="text-center mt-20">
                             <h2 className="text-3xl font-bold mb-4">No Projects Yet!</h2>
-                            <p className="text-lg mb-8">It looks like you haven't created any video projects. Let's change that!</p>
+                            <p className="text-lg mb-8">It looks like you haven&apos;t created any video projects. Let&apos;s change that!</p>
                             <Link href="/wizard" className="inline-block px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-green-400 to-blue-500 rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300 ease-in-out">
                                 Create Your First Video
                             </Link>

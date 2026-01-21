@@ -2,12 +2,14 @@
 
 import { Logo } from "@/components/Logo";
 import Link from "next/link";
-import { useEffect, useState } from 'react';
-import { onAuthStateChanged, User, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from './firebase'; // Make sure this path is correct
+import { useAuth } from '../context/AuthContext'; // Import the new context hook
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from './firebase';
 
-// A small component for the Login button
-const SignInButton = () => {
+// This component now uses the central context, making it reliable.
+const AuthNav = () => {
+  const { user, loading } = useAuth();
+
   const handleSignIn = async () => {
     const provider = new GoogleAuthProvider();
     try {
@@ -17,6 +19,18 @@ const SignInButton = () => {
     }
   };
 
+  if (loading) {
+    return <div className="w-24 h-10 bg-gray-700 rounded-lg animate-pulse"></div>; // A loading skeleton
+  }
+
+  if (user) {
+    return (
+      <Link href="/dashboard" className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+        Dashboard
+      </Link>
+    );
+  }
+
   return (
     <button onClick={handleSignIn} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
       Login
@@ -24,28 +38,7 @@ const SignInButton = () => {
   );
 };
 
-// A small component for the Dashboard button
-const DashboardButton = () => {
-  return (
-    <Link href="/dashboard" className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
-      Dashboard
-    </Link>
-  );
-};
-
-
 export default function Home() {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
-
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center font-sans">
       <header className="glass-header absolute top-0 left-0 w-full flex items-center justify-between p-6">
@@ -54,7 +47,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold ml-3 font-display">OpsVantage AI-YouTube Studio</h1>
         </div>
         <nav>
-          {loading ? <div></div> : (user ? <DashboardButton /> : <SignInButton />)}
+          <AuthNav />
         </nav>
       </header>
 

@@ -1,6 +1,7 @@
 
 import type { Metadata } from "next";
 import { Inter, Orbitron } from "next/font/google";
+import { AuthProvider } from '../context/AuthContext'; // Import the new provider
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
@@ -18,12 +19,14 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.Node;
 }>) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${orbitron.variable} font-sans`} suppressHydrationWarning={true}>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

@@ -92,7 +92,7 @@ const ScriptStep: FC<ScriptStepProps> = ({ script, onBack, onNext }) => (
         <div className="text-left bg-gray-800 p-4 rounded-lg whitespace-pre-wrap font-mono text-sm overflow-y-auto max-h-96">{script}</div>
         <div className="flex justify-between mt-6">
             <button onClick={onBack} className="secondary-cta-button">Back to Idea</button>
-            <button onClick={onNext} className="cta-button cta-glow">Next: Scheduling</button>
+            <button onClick={() => onNext()} className="cta-button cta-glow">Next: Scheduling</button>
         </div>
     </div>
 );
@@ -142,7 +142,7 @@ const SchedulingStep: FC<SchedulingStepProps> = ({ onBack, onNext, wizardData, s
             </div>
             <div className="flex justify-between mt-8">
                 <button onClick={onBack} className="secondary-cta-button">Back to Script</button>
-                {onNext && <button onClick={onNext} className="cta-button cta-glow">Next: Review & Confirm</button>}
+                {onNext && <button onClick={() => onNext()} className="cta-button cta-glow">Next: Review & Confirm</button>}
             </div>
         </div>
     );

@@ -4,9 +4,9 @@
     "rewrites": [
       {
         "source": "**",
-        "apphosting": {
-          "backendId": "my-next-app",
-          "location": "us-central1"
+        "run": {
+          "serviceId": "ssrmarzai",
+          "region": "us-central1"
         }
       }
     ]

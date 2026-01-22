@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { app } from '@/lib/firebase';
+import { app } from '../../../../lib/firebase';
 import { getFirestore, doc, getDoc, collection, addDoc, query, where, getDocs } from 'firebase/firestore';
-import { generateContentStrategyFlow } from '@/src';
+// Note: GenKit flows run on the server, so we'll call them via API routes
 
 const ContentStrategyPage = () => {
   const { id } = useParams();
@@ -66,16 +66,27 @@ const ContentStrategyPage = () => {
 
   const handleGenerateContentStrategy = async () => {
     if (!user || !id) return;
-    
+
     setGenerating(true);
-    
+
     try {
-      // Call the GenKit flow to generate content strategy
-      const result = await generateContentStrategyFlow({ 
-        userId: user.uid, 
-        projectId: id as string 
+      // Call the GenKit flow via API route
+      const response = await fetch('/api/genkit/generate-content-strategy', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: user.uid,
+          projectId: id as string
+        }),
       });
-      
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
       setContentPlan(result.contentPlan);
       alert('Content strategy generated successfully!');
     } catch (error) {
@@ -158,7 +169,7 @@ const ContentStrategyPage = () => {
           {contentPlan.length === 0 ? (
             <div className="bg-gray-800 rounded-lg p-8 text-center border border-gray-700">
               <p className="text-xl">No content plan generated yet.</p>
-              <p className="mt-2 text-gray-300">Click "Generate Strategy" to create your AI-powered content plan.</p>
+              <p className="mt-2 text-gray-300">Click &quot;Generate Strategy&quot; to create your AI-powered content plan.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

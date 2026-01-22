@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { app } from '@/lib/firebase';
+import { app } from '../../lib/firebase';
 
 const LoginPage = () => {
   const [isLogin, setIsLogin] = useState(true);

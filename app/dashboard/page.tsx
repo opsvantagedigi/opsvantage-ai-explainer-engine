@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { getFirestore, collection, getDocs, query, where, orderBy, limit } from 'firebase/firestore';
-import { app } from '@/lib/firebase'; // Assuming we have a firebase config file
+import { app } from '../../lib/firebase'; // Assuming we have a firebase config file
 
 const DashboardPage = () => {
   const [user, setUser] = useState<any>(null);
@@ -122,7 +122,7 @@ const DashboardPage = () => {
           
           {projects.length === 0 ? (
             <div className="gradient-box rounded-lg p-8 text-center">
-              <p className="text-xl">You don't have any projects yet.</p>
+              <p className="text-xl">You don&apos;t have any projects yet.</p>
               <p className="mt-2 text-gray-300">Create your first project to start generating AI-powered YouTube videos.</p>
             </div>
           ) : (

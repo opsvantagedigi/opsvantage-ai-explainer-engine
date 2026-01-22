@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { app } from '@/lib/firebase';
+import { app } from '../../../lib/firebase';
 import { getFirestore, doc, getDoc, collection, getDocs, query, where, updateDoc } from 'firebase/firestore';
-import { connectYouTubeAccountFlow } from '@/src';
+// Note: GenKit flows run on the server, so we'll call them via API routes
 
 const ProjectDetailPage = () => {
   const { id } = useParams();
@@ -46,13 +46,25 @@ const ProjectDetailPage = () => {
 
   const handleConnectYouTube = async () => {
     if (!user || !id) return;
-    
+
     setConnectingYouTube(true);
-    
+
     try {
-      // Call the GenKit flow to initiate YouTube connection
-      const result = await connectYouTubeAccountFlow({ userId: user.uid });
-      
+      // Call the GenKit flow via API route
+      const response = await fetch('/api/genkit/connect-youtube-account', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId: user.uid }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
       // Redirect to YouTube auth URL
       window.location.href = result.authUrl;
     } catch (error) {

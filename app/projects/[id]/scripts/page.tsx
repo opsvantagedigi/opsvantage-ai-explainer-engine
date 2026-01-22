@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { app } from '@/lib/firebase';
+import { app } from '../../../../lib/firebase';
 import { getFirestore, doc, getDoc, collection, addDoc, query, where, getDocs } from 'firebase/firestore';
-import { generateScriptFlow } from '@/src';
+// Note: GenKit flows run on the server, so we'll call them via API routes
 
 const ScriptsPage = () => {
   const { id } = useParams();
@@ -64,17 +64,29 @@ const ScriptsPage = () => {
 
   const handleGenerateScript = async () => {
     if (!user || !id || !idea.trim()) return;
-    
+
     setGenerating(true);
-    
+
     try {
-      // Call the GenKit flow to generate script
-      const result = await generateScriptFlow({ 
-        idea: idea.trim(),
-        projectId: id as string,
-        planItemId: planItemId || undefined
+      // Call the GenKit flow via API route
+      const response = await fetch('/api/genkit/generate-script', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          idea: idea.trim(),
+          projectId: id as string,
+          planItemId: planItemId || undefined
+        }),
       });
-      
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
       // Add the new script to the list
       setScripts(prev => [result, ...prev]);
       setIdea('');

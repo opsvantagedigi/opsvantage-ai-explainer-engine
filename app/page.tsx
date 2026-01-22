@@ -4,7 +4,7 @@ import React from 'react';
 const AppPage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-4 font-orbitron gradient-text">OpsVantage AI-YouTube Studio</h1>
+      <h1 className="text-4xl font-bold mb-4 font-orbitron gradient-text">OpsVantage Digital AI-YouTube Studio</h1>
       <p className="text-lg mb-8">
         The Autonomous AI Agent for YouTube Content Creation, Scheduling, and Publishing
       </p>

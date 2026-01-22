@@ -7,8 +7,13 @@
       "**/node_modules/**"
     ],
     "frameworksBackend": {
-      "region": "us-central1",
-      "memory": "512MiB"
+      "region": "us-central1"
+    },
+    "run": {
+      "memory": "512MiB",
+      "secrets": [
+        "GEMINI_API_KEY"
+      ]
     }
   },
   "firestore": {

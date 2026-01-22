@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Image from 'next/image';
 import '../styles/globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -12,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="bg-opacity-20 backdrop-blur-lg rounded-xl border border-gray-700 text-white p-4 m-4">
           <div className="container mx-auto flex justify-between items-center">
             <div className="flex items-center">
-              <img src="/icon.svg" alt="OpsVantage Digital AI-YouTube Studio Logo" className="h-8 w-8 mr-2" />
+              <Image src="/icon.svg" alt="OpsVantage Digital AI-YouTube Studio Logo" width={32} height={32} className="mr-2" />
               <h1 className="text-2xl font-bold font-orbitron gradient-text">OpsVantage Digital AI-YouTube Studio</h1>
             </div>
             <nav>

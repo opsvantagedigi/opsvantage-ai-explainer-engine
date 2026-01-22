@@ -3,36 +3,37 @@ import * as z from 'zod';
 import { gemini15Pro } from '@genkit-ai/googleai';
 import { generate } from '@genkit-ai/ai';
 import { ScriptSchema } from '../models/script';
+import { GENERATE_SCRIPT_SYSTEM_PROMPT, GENERATE_SCRIPT_PROMPT_TEMPLATE } from '../prompts';
 
 export const generateScriptFlow = defineFlow(
   {
     name: 'generateScript',
-    inputSchema: z.object({ topic: z.string(), projectId: z.string() }),
+    inputSchema: z.object({ idea: z.string(), projectId: z.string() }),
     outputSchema: ScriptSchema,
     authPolicy: (auth: any, input: any) => {},
   },
   async (input) => {
-    const prompt = `Generate a video script about ${input.topic}.`;
+    const prompt = GENERATE_SCRIPT_PROMPT_TEMPLATE.replace('{idea}', input.idea);
 
     const llmResponse = await generate({ 
         model: gemini15Pro,
         prompt: prompt,
         config: { temperature: 0.7 },
+        system: GENERATE_SCRIPT_SYSTEM_PROMPT,
     });
-    const scriptText = llmResponse.text();
+    const scriptData = JSON.parse(llmResponse.text());
 
-    // TODO: Implement the logic to parse the scriptText and generate the other fields of the Script schema.
     const script = {
       projectId: input.projectId,
       videoId: 'video_' + Math.random().toString(36).substring(7),
-      scriptText: scriptText,
+      scriptText: scriptData.main_points.join('\n'),
       sceneBreakdown: [],
       seoMetadata: {
-        title: `Video about ${input.topic}`,
-        description: `A video about ${input.topic}`,
-        tags: [input.topic],
+        title: scriptData.title,
+        description: scriptData.introduction,
+        tags: [input.idea],
         chapters: [],
-        hashtags: [input.topic],
+        hashtags: [input.idea],
       },
       thumbnailConcepts: [],
       createdAt: new Date().toISOString(),

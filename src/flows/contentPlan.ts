@@ -4,6 +4,7 @@ import { gemini15Pro } from '@genkit-ai/googleai';
 import { generate } from '@genkit-ai/ai';
 import { ContentPlanSchema } from '../models/contentPlan';
 import * as admin from 'firebase-admin';
+import { GENERATE_CONTENT_PLAN_SYSTEM_PROMPT, GENERATE_CONTENT_PLAN_PROMPT_TEMPLATE } from '../prompts';
 
 if (!admin.apps.length) {
   admin.initializeApp();
@@ -28,19 +29,20 @@ export const generateContentPlanFlow = defineFlow(
 
     const niche = projectData.niche;
 
-    const prompt = `Generate a content plan with 10 video ideas for a YouTube channel in the niche of ${niche}.`;
+    const prompt = GENERATE_CONTENT_PLAN_PROMPT_TEMPLATE.replace('{idea}', niche);
 
-    await generate({ 
+    const llmResponse = await generate({ 
         model: gemini15Pro,
         prompt: prompt,
         config: { temperature: 0.7 },
+        system: GENERATE_CONTENT_PLAN_SYSTEM_PROMPT,
     });
+    const contentPlanData = JSON.parse(llmResponse.text());
 
-    // TODO: Implement the logic to parse the planText and generate the other fields of the ContentPlan schema.
     const plan = {
       projectId: input.projectId,
       status: 'active' as const,
-      items: [],
+      items: contentPlanData.content_plan,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };

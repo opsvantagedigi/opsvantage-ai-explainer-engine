@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@genkit-ai/ai": "^1.27.0",
+    "@genkit-ai/core": "^1.27.0",
     "@genkit-ai/firebase": "^1.27.0",
+    "@genkit-ai/flow": "^0.5.17",
     "@genkit-ai/googleai": "^1.27.0",
     "@google/generative-ai": "^0.24.1",
     "firebase": "^12.8.0",
@@ -20,7 +23,8 @@
     "next": "^14.2.35",
     "react": "^18",
     "react-calendar": "^6.0.0",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@types/node": "^20",

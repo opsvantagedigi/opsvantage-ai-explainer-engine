@@ -1,0 +1,31 @@
+{
+  "plugins": [
+    {
+      "plugin": "firebase",
+      "options": {
+        "projectId": "opsvantage-ai-youtube-studio-firebase",
+        "location": "us-central1"
+      }
+    },
+    {
+      "plugin": "googleai",
+      "options": {
+        "apiKey": "YOUR_GEMINI_API_KEY"
+      }
+    }
+  ],
+  "flows": [
+    {
+      "name": "menuSuggestionFlow",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    }
+  ],
+  "model": "gemini-1.5-flash",
+  "language": "typescript",
+  "prettier": {}
+}

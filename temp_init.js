@@ -1,1 +1,1 @@
-require('genkit/init');
+require('@genkit-ai/core/init');

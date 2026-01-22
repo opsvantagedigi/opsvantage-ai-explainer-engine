@@ -7,7 +7,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2017",
-    "rootDir": "src",
+    "rootDir": ".",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "lib": [
@@ -21,11 +21,19 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "compileOnSave": true,
   "include": [
-    "src"
+    "src",
+    "app",
+    "styles",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

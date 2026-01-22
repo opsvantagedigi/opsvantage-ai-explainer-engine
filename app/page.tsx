@@ -23,7 +23,7 @@ const AppPage = () => {
         <div>
           <h2 className="text-2xl font-bold mb-4">Architecture</h2>
           <p>
-            OpsVantage AI is built on a modern, serverless architecture, leveraging the power of Google's Generative AI and Firebase to deliver a robust and scalable platform.
+            OpsVantage AI is built on a modern, serverless architecture, leveraging the power of Google&apos;s Generative AI and Firebase to deliver a robust and scalable platform.
           </p>
           <p>
             The frontend is built with Next.js and Tailwind CSS, providing a responsive and user-friendly interface.

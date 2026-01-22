@@ -1,7 +1,5 @@
 {
   "projects": {
-    "default": "monospace-6"
-  },
-  "targets": {},
-  "etags": {}
+    "default": "genkit-youtubemate"
+  }
 }

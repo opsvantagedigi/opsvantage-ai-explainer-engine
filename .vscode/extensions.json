@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "10nates.ollama-autocoder"
+        "10nates.ollama-autocoder",
+        "qwenlm.qwen-code-vscode-ide-companion"
     ]
 }

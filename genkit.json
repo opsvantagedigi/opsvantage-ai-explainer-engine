@@ -158,6 +158,69 @@
           "on": "request"
         }
       ]
+    },
+    {
+      "name": "githubUserFlow",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "githubReposFlow",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "githubRepoDetailsFlow",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "githubCreateRepoFlow",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "githubCreateIssueFlow",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "githubListIssuesFlow",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "githubListCommitsFlow",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
     }
   ],
   "model": "gemini-1.5-flash",

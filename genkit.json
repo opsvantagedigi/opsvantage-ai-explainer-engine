@@ -221,6 +221,51 @@
           "on": "request"
         }
       ]
+    },
+    {
+      "name": "generateThumbnail",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "autoPublishSchedule",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "competitorAnalysis",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "audiencePersonaBuilder",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
+    },
+    {
+      "name": "contentCalendarGenerator",
+      "triggers": [
+        {
+          "name": "https",
+          "on": "request"
+        }
+      ]
     }
   ],
   "model": "gemini-1.5-flash",

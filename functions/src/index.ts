@@ -35,6 +35,12 @@ import {
   githubListCommitsFlow
 } from './githubFlows';
 
+import { generateThumbnailFlow } from './flows/generateThumbnail';
+import { autoPublishScheduleFlow } from './flows/autoPublishSchedule';
+import { competitorAnalysisFlow } from './flows/competitorAnalysis';
+import { audiencePersonaBuilderFlow } from './flows/audiencePersonaBuilder';
+import { contentCalendarGeneratorFlow } from './flows/contentCalendarGenerator';
+
 // Register all flows with Firebase Genkit
 export {
   generateContentStrategyFlow,
@@ -59,5 +65,10 @@ export {
   githubCreateRepoFlow,
   githubCreateIssueFlow,
   githubListIssuesFlow,
-  githubListCommitsFlow
+  githubListCommitsFlow,
+  generateThumbnailFlow,
+  autoPublishScheduleFlow,
+  competitorAnalysisFlow,
+  audiencePersonaBuilderFlow,
+  contentCalendarGeneratorFlow
 };

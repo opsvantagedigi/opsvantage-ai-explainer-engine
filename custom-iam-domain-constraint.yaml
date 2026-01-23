@@ -1,0 +1,10 @@
+name: organizations/939475058683/customConstraints/custom.allowedPolicyMemberDomains
+resourceTypes:
+- iam.googleapis.com/AllowPolicy
+methodTypes:
+- CREATE
+- UPDATE
+condition: "resource.bindings.all( binding, binding.members.all(member, MemberSubjectEndsWith(member, ['@gserviceaccount.com', '@system.gserviceaccount.com']) ) )"
+actionType: ALLOW
+displayName: Allow specific Google-managed service account domains
+description: Only allow members from Google-managed service account domains, including system.gserviceaccount.com, in IAM policies.

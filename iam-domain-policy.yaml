@@ -1,0 +1,4 @@
+name: organizations/939475058683/policies/custom.allowedPolicyMemberDomains
+spec:
+  rules:
+  - enforce: true

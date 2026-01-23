@@ -1,4 +1,4 @@
-import { flow } from '@genkit-ai/flow';
+import { defineFlow } from '@genkit-ai/flow';
 import { z } from 'zod';
 import GitHubService from './services/githubService';
 
@@ -29,49 +29,49 @@ const GitHubCreateIssueInputSchema = z.object({
 });
 
 // Define the flows
-export const githubUserFlow = flow(
-  'githubUserFlow',
+export const githubUserFlow = defineFlow(
   {
+    name: 'githubUserFlow',
     inputSchema: GitHubUserInputSchema,
     outputSchema: z.any(), // GitHub user object schema
   },
-  async (input) => {
+  async (input: z.infer<typeof GitHubUserInputSchema>) => {
     const githubService = new GitHubService(input.githubToken);
     return await githubService.getUser();
   }
 );
 
-export const githubReposFlow = flow(
-  'githubReposFlow',
+export const githubReposFlow = defineFlow(
   {
+    name: 'githubReposFlow',
     inputSchema: GitHubUserInputSchema,
     outputSchema: z.array(z.any()), // Array of GitHub repo objects
   },
-  async (input) => {
+  async (input: z.infer<typeof GitHubUserInputSchema>) => {
     const githubService = new GitHubService(input.githubToken);
     return await githubService.listRepositories();
   }
 );
 
-export const githubRepoDetailsFlow = flow(
-  'githubRepoDetailsFlow',
+export const githubRepoDetailsFlow = defineFlow(
   {
+    name: 'githubRepoDetailsFlow',
     inputSchema: GitHubRepoInputSchema,
     outputSchema: z.any(), // GitHub repo object
   },
-  async (input) => {
+  async (input: z.infer<typeof GitHubRepoInputSchema>) => {
     const githubService = new GitHubService(input.githubToken);
     return await githubService.getRepository(input.owner, input.repo);
   }
 );
 
-export const githubCreateRepoFlow = flow(
-  'githubCreateRepoFlow',
+export const githubCreateRepoFlow = defineFlow(
   {
+    name: 'githubCreateRepoFlow',
     inputSchema: GitHubCreateRepoInputSchema,
     outputSchema: z.any(), // Created GitHub repo object
   },
-  async (input) => {
+  async (input: z.infer<typeof GitHubCreateRepoInputSchema>) => {
     const githubService = new GitHubService(input.githubToken);
     return await githubService.createRepository(
       input.name,
@@ -81,13 +81,13 @@ export const githubCreateRepoFlow = flow(
   }
 );
 
-export const githubCreateIssueFlow = flow(
-  'githubCreateIssueFlow',
+export const githubCreateIssueFlow = defineFlow(
   {
+    name: 'githubCreateIssueFlow',
     inputSchema: GitHubCreateIssueInputSchema,
     outputSchema: z.any(), // Created GitHub issue object
   },
-  async (input) => {
+  async (input: z.infer<typeof GitHubCreateIssueInputSchema>) => {
     const githubService = new GitHubService(input.githubToken);
     return await githubService.createIssue(
       input.owner,
@@ -98,25 +98,25 @@ export const githubCreateIssueFlow = flow(
   }
 );
 
-export const githubListIssuesFlow = flow(
-  'githubListIssuesFlow',
+export const githubListIssuesFlow = defineFlow(
   {
+    name: 'githubListIssuesFlow',
     inputSchema: GitHubRepoInputSchema,
     outputSchema: z.array(z.any()), // Array of GitHub issue objects
   },
-  async (input) => {
+  async (input: z.infer<typeof GitHubRepoInputSchema>) => {
     const githubService = new GitHubService(input.githubToken);
     return await githubService.listIssues(input.owner, input.repo);
   }
 );
 
-export const githubListCommitsFlow = flow(
-  'githubListCommitsFlow',
+export const githubListCommitsFlow = defineFlow(
   {
+    name: 'githubListCommitsFlow',
     inputSchema: GitHubRepoInputSchema,
     outputSchema: z.array(z.any()), // Array of GitHub commit objects
   },
-  async (input) => {
+  async (input: z.infer<typeof GitHubRepoInputSchema>) => {
     const githubService = new GitHubService(input.githubToken);
     return await githubService.listCommits(input.owner, input.repo);
   }

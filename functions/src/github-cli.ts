@@ -29,7 +29,7 @@ program
     try {
       const user = await githubService.getUser();
       console.log(JSON.stringify(user, null, 2));
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       process.exit(1);
     }
@@ -42,7 +42,7 @@ program
     try {
       const repos = await githubService.listRepositories();
       console.log(JSON.stringify(repos, null, 2));
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       process.exit(1);
     }
@@ -55,7 +55,7 @@ program
     try {
       const repository = await githubService.getRepository(owner, repo);
       console.log(JSON.stringify(repository, null, 2));
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       process.exit(1);
     }
@@ -68,7 +68,7 @@ program
     try {
       const commits = await githubService.listCommits(owner, repo);
       console.log(JSON.stringify(commits, null, 2));
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       process.exit(1);
     }
@@ -87,7 +87,7 @@ program
         options.private
       );
       console.log(JSON.stringify(repo, null, 2));
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       process.exit(1);
     }
@@ -106,7 +106,7 @@ program
         options.body
       );
       console.log(JSON.stringify(issue, null, 2));
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       process.exit(1);
     }
@@ -119,7 +119,7 @@ program
     try {
       const issues = await githubService.listIssues(owner, repo);
       console.log(JSON.stringify(issues, null, 2));
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       process.exit(1);
     }
@@ -132,7 +132,7 @@ program
     try {
       const content = await githubService.getFileContent(owner, repo, path);
       console.log(content);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       process.exit(1);
     }
@@ -154,7 +154,7 @@ program
         options.branch
       );
       console.log('File updated successfully');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       process.exit(1);
     }

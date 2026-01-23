@@ -14,7 +14,8 @@ export async function POST(req: NextRequest) {
     }
 
     // Call the deployed Genkit flow via HTTP request
-    const response = await fetch(`https://us-central1-marz-ai-studio-ops.cloudfunctions.net/generateScript`, {
+    // Using the correct URL pattern for the deployed flow
+    const response = await fetch(`https://us-central1-${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.cloudfunctions.net/generateScript`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

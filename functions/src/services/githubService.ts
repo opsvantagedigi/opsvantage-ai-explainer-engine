@@ -51,8 +51,8 @@ class GitHubService {
         },
       });
       return response.data;
-    } catch (error) {
-      throw new Error(`Failed to get user: ${(error as any).response?.data?.message || (error as any).message}`);
+    } catch (error: any) {
+      throw new Error(`Failed to get user: ${error.response?.data?.message || error.message}`);
     }
   }
 
@@ -71,9 +71,9 @@ class GitHubService {
           direction: 'desc',
         },
       });
-      return response.data;
-    } catch (error) {
-      throw new Error(`Failed to list repositories: ${(error as any).response?.data?.message || (error as any).message}`);
+      return response.data as GitHubRepo[];
+    } catch (error: any) {
+      throw new Error(`Failed to list repositories: ${error.response?.data?.message || error.message}`);
     }
   }
 
@@ -88,9 +88,9 @@ class GitHubService {
           Accept: 'application/vnd.github.v3+json',
         },
       });
-      return response.data;
-    } catch (error) {
-      throw new Error(`Failed to get repository: ${(error as any).response?.data?.message || (error as any).message}`);
+      return response.data as GitHubRepo;
+    } catch (error: any) {
+      throw new Error(`Failed to get repository: ${error.response?.data?.message || error.message}`);
     }
   }
 
@@ -105,7 +105,7 @@ class GitHubService {
           Accept: 'application/vnd.github.v3+json',
         },
       });
-      return response.data.map((commit: any) => ({
+      return (response.data as any[]).map((commit: any) => ({
         sha: commit.sha,
         message: commit.commit.message,
         author: {
@@ -115,8 +115,8 @@ class GitHubService {
         },
         url: commit.html_url,
       }));
-    } catch (error) {
-      throw new Error(`Failed to list commits: ${(error as any).response?.data?.message || (error as any).message}`);
+    } catch (error: any) {
+      throw new Error(`Failed to list commits: ${error.response?.data?.message || error.message}`);
     }
   }
 
@@ -143,9 +143,9 @@ class GitHubService {
           },
         }
       );
-      return response.data;
-    } catch (error) {
-      throw new Error(`Failed to create repository: ${(error as any).response?.data?.message || (error as any).message}`);
+      return response.data as GitHubRepo;
+    } catch (error: any) {
+      throw new Error(`Failed to create repository: ${error.response?.data?.message || error.message}`);
     }
   }
 
@@ -172,9 +172,9 @@ class GitHubService {
           },
         }
       );
-      return response.data;
-    } catch (error) {
-      throw new Error(`Failed to create issue: ${(error as any).response?.data?.message || (error as any).message}`);
+      return response.data as GitHubIssue;
+    } catch (error: any) {
+      throw new Error(`Failed to create issue: ${error.response?.data?.message || error.message}`);
     }
   }
 
@@ -192,9 +192,9 @@ class GitHubService {
           state: 'open',
         },
       });
-      return response.data;
-    } catch (error) {
-      throw new Error(`Failed to list issues: ${(error as any).response?.data?.message || (error as any).message}`);
+      return response.data as GitHubIssue[];
+    } catch (error: any) {
+      throw new Error(`Failed to list issues: ${error.response?.data?.message || error.message}`);
     }
   }
 
@@ -211,10 +211,10 @@ class GitHubService {
       });
 
       // Decode base64 content
-      const content = Buffer.from(response.data.content, 'base64').toString('utf8');
+      const content = Buffer.from((response.data as any).content, 'base64').toString('utf8');
       return content;
-    } catch (error) {
-      throw new Error(`Failed to get file content: ${(error as any).response?.data?.message || (error as any).message}`);
+    } catch (error: any) {
+      throw new Error(`Failed to get file content: ${error.response?.data?.message || error.message}`);
     }
   }
 
@@ -231,7 +231,7 @@ class GitHubService {
   ): Promise<void> {
     try {
       const encodedContent = Buffer.from(content, 'utf8').toString('base64');
-      
+
       const payload: any = {
         message,
         content: encodedContent,
@@ -247,8 +247,8 @@ class GitHubService {
           Accept: 'application/vnd.github.v3+json',
         },
       });
-    } catch (error) {
-      throw new Error(`Failed to write file content: ${(error as any).response?.data?.message || (error as any).message}`);
+    } catch (error: any) {
+      throw new Error(`Failed to write file content: ${error.response?.data?.message || error.message}`);
     }
   }
 }

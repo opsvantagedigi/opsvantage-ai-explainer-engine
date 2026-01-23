@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Call the deployed Genkit flow via HTTP request
-    const response = await fetch(`https://us-central1-marz-ai-studio-ops.cloudfunctions.net/connectYouTubeAccount`, {
+    const response = await fetch(`https://us-central1-${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.cloudfunctions.net/connectYouTubeAccount`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

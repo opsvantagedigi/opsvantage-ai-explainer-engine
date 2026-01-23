@@ -1,16 +1,58 @@
-import { defineFlow } from '@genkit-ai/flow';
-import { 
-  githubUserFlow, 
-  githubReposFlow, 
-  githubRepoDetailsFlow, 
-  githubCreateRepoFlow, 
-  githubCreateIssueFlow, 
-  githubListIssuesFlow, 
-  githubListCommitsFlow 
+import * as admin from 'firebase-admin';
+
+// Initialize Firebase Admin SDK
+if (!admin.apps.length) {
+  admin.initializeApp();
+}
+
+// Import all flows
+import {
+  generateContentStrategyFlow,
+  generateScriptFlow,
+  generateVoiceoverFlow,
+  generateVideoAssetsFlow,
+  assembleFinalVideoFlow,
+  uploadToYouTubeFlow,
+  connectYouTubeAccountFlow,
+  handleYouTubeAuthCallbackFlow,
+  generateMonetisationPlanFlow,
+  createMonetisationProfileFlow,
+  getMonetisationProfileFlow,
+  runGrowthAnalyticsFlow,
+  executePromotionTaskFlow,
+  schedulePromotionCampaignFlow,
+  createSubscriptionPaymentFlow,
+  handlePaymentWebhookFlow
+} from './mainFlows';
+
+import {
+  githubUserFlow,
+  githubReposFlow,
+  githubRepoDetailsFlow,
+  githubCreateRepoFlow,
+  githubCreateIssueFlow,
+  githubListIssuesFlow,
+  githubListCommitsFlow
 } from './githubFlows';
 
-// Export all flows to ensure they're registered
+// Register all flows with Firebase Genkit
 export {
+  generateContentStrategyFlow,
+  generateScriptFlow,
+  generateVoiceoverFlow,
+  generateVideoAssetsFlow,
+  assembleFinalVideoFlow,
+  uploadToYouTubeFlow,
+  connectYouTubeAccountFlow,
+  handleYouTubeAuthCallbackFlow,
+  generateMonetisationPlanFlow,
+  createMonetisationProfileFlow,
+  getMonetisationProfileFlow,
+  runGrowthAnalyticsFlow,
+  executePromotionTaskFlow,
+  schedulePromotionCampaignFlow,
+  createSubscriptionPaymentFlow,
+  handlePaymentWebhookFlow,
   githubUserFlow,
   githubReposFlow,
   githubRepoDetailsFlow,
@@ -19,12 +61,3 @@ export {
   githubListIssuesFlow,
   githubListCommitsFlow
 };
-
-// Also define them explicitly for Firebase deployment
-defineFlow(githubUserFlow);
-defineFlow(githubReposFlow);
-defineFlow(githubRepoDetailsFlow);
-defineFlow(githubCreateRepoFlow);
-defineFlow(githubCreateIssueFlow);
-defineFlow(githubListIssuesFlow);
-defineFlow(githubListCommitsFlow);

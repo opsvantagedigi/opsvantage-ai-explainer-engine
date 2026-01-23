@@ -1,7 +1,6 @@
 {
   "projects": {
-    "default": "genkit-youtubemate",
-    "marz-ai-studio-ops": "marz-ai-studio-ops"
+    "default": "marz-ai-studio-ops"
   },
   "targets": {},
   "etags": {}

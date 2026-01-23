@@ -44,3 +44,18 @@ firebase-debug.log
 
 # firebase
 .firebase
+
+# Functions specific ignores
+functions/node_modules/
+functions/lib/
+functions/package-lock.json
+
+# VSCode settings that might be local
+.vscode/extensions.json
+
+# Other common files to ignore
+*.log
+tmp/
+dist/
+.DS_Store
+Thumbs.db
